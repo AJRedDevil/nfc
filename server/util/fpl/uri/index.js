@@ -1,10 +1,7 @@
-const {createURL} = require('./fplURLGenerator');
-const {getParams, getClassicConfig} = require('./classic');
-const {getH2HConfig} = require('./h2h');
+const {getClassicURL} = require('./classic');
+const {getH2HURL} = require('./h2h');
 
 module.exports = {
-  createURL,
-  getParams,
-  getClassicConfig,
-  getH2HConfig,
+  getClassicURL,
+  getH2HURL,
 };

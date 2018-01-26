@@ -1,8 +1,8 @@
 // npm packages
-const {zip} = require('lodash');
+const {flow, zip} = require('lodash');
 
 // our packages
-const {getBaseConfig} = require('./fplURLGenerator');
+const {createURL, getBaseConfig} = require('./fplURLGenerator');
 
 const PHASE = Object.freeze({
   OVERALL: 1,
@@ -30,7 +30,8 @@ const createClassicConfig = ({phase = PHASE.OVERALL, lePage = 1, lsPage = 1}) =>
 const getClassicConfig = (values = getParams([1, 1, 1])) =>
   Object.assign(getBaseConfig(), createClassicConfig(values));
 
+const getClassicURL = flow(getParams, getClassicConfig, createURL);
+
 module.exports = {
-  getParams,
-  getClassicConfig,
+  getClassicURL,
 };
