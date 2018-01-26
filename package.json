@@ -1,0 +1,9 @@
+{
+  "name": "nfc",
+  "version": "1.0.0",
+  "description": "NFC website for FPL, prediction and QOTD",
+  "main": "index.js",
+  "repository": "git@gitlab.com:AJRedDevil/nfc.git",
+  "author": "AJRedDevil",
+  "license": "MIT"
+}
