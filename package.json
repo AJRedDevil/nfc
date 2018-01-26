@@ -4,6 +4,10 @@
   "description": "NFC website for FPL, prediction and QOTD",
   "main": "index.js",
   "repository": "git@gitlab.com:AJRedDevil/nfc.git",
-  "author": "AJRedDevil",
-  "license": "MIT"
+  "author": "AJRedDevil <ajan.shresh@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2"
+  }
 }
