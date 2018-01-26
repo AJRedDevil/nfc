@@ -6,8 +6,21 @@
   "repository": "git@gitlab.com:AJRedDevil/nfc.git",
   "author": "AJRedDevil <ajan.shresh@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "lint": "eslint **/*.js"
+  },
   "dependencies": {
     "request": "^2.83.0",
     "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.5.0",
+    "eslint-plugin-react": "^7.6.0",
+    "prettier": "^1.10.2"
   }
 }
