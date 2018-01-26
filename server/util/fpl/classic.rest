@@ -1,0 +1,9 @@
+@BASE_URL = https://fantasy.premierleague.com
+@PATH = drf/leagues-classic-standings
+@id = 1827
+@ls-page = 1
+
+###
+# NFC Classic
+# https://fantasy.premierleague.com/drf/leagues-classic-standings/1827?phase=1&le-page=1&ls-page=1
+{{BASE_URL}}/{{PATH}}/{{id}}?phase=1&le-page=1&ls-page={{ls-page}}
