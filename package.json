@@ -7,9 +7,11 @@
   "author": "AJRedDevil <ajan.shresh@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint **/*.js"
+    "lint": "eslint **/*.js",
+    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check"
   },
   "dependencies": {
+    "lodash": "^4.17.4",
     "request": "^2.83.0",
     "request-promise": "^4.2.2"
   },
