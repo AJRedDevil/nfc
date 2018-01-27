@@ -1,5 +1,5 @@
 // our packages
-const {getClassicURL, getH2HURL} = require('../../uri');
+const {getClassicURL, getH2HURL} = require('../../fplUri');
 
 describe('Test FPL URI Generation', () => {
   test('Generate Correct Classic League URL', () => {
