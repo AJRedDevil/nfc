@@ -1,11 +1,11 @@
 // our packages
-const {fetchStandings} = require('../../fplClient');
+const {fetchH2HStandings} = require('../../fplClient');
 
 describe('Fetch Standings', () => {
   let response = {};
   beforeAll(async () => {
     const H2H_LEAGUE_ID = 28162;
-    response = await fetchStandings(H2H_LEAGUE_ID);
+    response = await fetchH2HStandings(H2H_LEAGUE_ID);
   });
 
   test('Test H2H Standings', async () => {

@@ -9,10 +9,10 @@ const {getJSONOptions, getLogger} = require('../../util');
 const logger = getLogger(__filename);
 const getOptions = flow(getH2HURL, getJSONOptions);
 
-const fetchStandings = id =>
+const fetchH2HStandings = id =>
   rp
     .get(getOptions(id))
     .then(response => response)
     .catch(err => logger.error(err));
 
-module.exports = {fetchStandings};
+module.exports = {fetchH2HStandings};
