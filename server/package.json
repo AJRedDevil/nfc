@@ -1,13 +1,13 @@
 {
-  "name": "nfc",
+  "name": "nfc-server",
   "version": "1.0.0",
-  "description": "NFC website for FPL, prediction and QOTD",
+  "description": "Backend for NFC website. FPL, prediction and QOTD",
   "main": "index.js",
   "repository": "git@gitlab.com:AJRedDevil/nfc.git",
   "author": "AJRedDevil <ajan.shresh@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start-server": "node server/start.js",
+    "start": "node index.js",
     "lint": "eslint **/*.js",
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
     "test": "jest --verbose"
