@@ -13,6 +13,9 @@ const fetchH2HStandings = id =>
   rp
     .get(getOptions(id))
     .then(response => response)
-    .catch(err => logger.error(err));
+    .catch(err => {
+      logger.error(err);
+      return Error('Issue in H2h Standings.');
+    });
 
 module.exports = {fetchH2HStandings};

@@ -16,7 +16,10 @@ const fplLeagueRequest = options =>
     rp
       .get(option)
       .then(response => response)
-      .catch(err => logger.error(err))
+      .catch(err => {
+        logger.error(err);
+        return Error('Issue in Classic Standings.');
+      })
   );
 
 const fetchLeagueData = flow(getClassicURLs, getJSONOptions, fplLeagueRequest);
