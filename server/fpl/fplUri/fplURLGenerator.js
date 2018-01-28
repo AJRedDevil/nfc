@@ -6,7 +6,11 @@ const createURLPath = (...args) => args.join('/');
 const createFullPath = (url, keys, values) =>
   zip(keys, values)
     .map(keyValue => keyValue.join('='))
-    .reduce((finalUrl, param) => `${finalUrl}&${param}`, `${url}?`);
+    .reduce(
+      (finalUrl, param, currIndex) =>
+        currIndex === 0 ? `${finalUrl}?${param}` : `${finalUrl}&${param}`,
+      `${url}`
+    );
 
 const createURL = config => id => {
   const {PROTOCOL, HOSTNAME, PATH, KEYS, VALUES} = config;
@@ -20,4 +24,10 @@ const getBaseConfig = () => ({
   HOSTNAME: 'fantasy.premierleague.com',
 });
 
-module.exports = {getBaseConfig, createURL};
+module.exports = {
+  createBaseURL,
+  createURLPath,
+  createFullPath,
+  createURL,
+  getBaseConfig,
+};

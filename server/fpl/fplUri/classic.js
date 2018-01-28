@@ -1,5 +1,5 @@
 // npm packages
-const {flow, zip} = require('lodash');
+const {flow, zipObject} = require('lodash');
 
 // our packages
 const {createURL, getBaseConfig} = require('./fplURLGenerator');
@@ -19,7 +19,7 @@ const PHASE = Object.freeze({
 });
 const KEYS = ['phase', 'lePage', 'lsPage'];
 
-const getParams = values => Object.freeze(zip(KEYS, values));
+const getParams = values => Object.freeze(zipObject(KEYS, values));
 
 const createClassicConfig = ({phase = PHASE.OVERALL, lePage = 1, lsPage = 1}) =>
   Object.freeze({
@@ -27,11 +27,16 @@ const createClassicConfig = ({phase = PHASE.OVERALL, lePage = 1, lsPage = 1}) =>
     KEYS: ['phase', 'le-page', 'ls-page'],
     VALUES: [phase, lePage, lsPage],
   });
-const getClassicConfig = (values = getParams([1, 1, 1])) =>
+const mergeConfig = values =>
   Object.assign(getBaseConfig(), createClassicConfig(values));
 
-const getClassicURL = flow(getParams, getClassicConfig, createURL);
+const getClassicConfig = flow(getParams, mergeConfig);
+const getClassicURL = flow(getClassicConfig, createURL);
 
 module.exports = {
+  getParams,
+  createClassicConfig,
+  mergeConfig,
+  getClassicConfig,
   getClassicURL,
 };

@@ -12,5 +12,6 @@ const getH2HConfig = () => assign(getBaseConfig(), h2hConfig);
 const getH2HURL = flow(getH2HConfig, createURL);
 
 module.exports = {
+  getH2HConfig,
   getH2HURL: getH2HURL(),
 };

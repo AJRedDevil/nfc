@@ -10,7 +10,7 @@
     "start-server": "node server/start.js",
     "lint": "eslint **/*.js",
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
-    "test": "jest"
+    "test": "jest --verbose"
   },
   "dependencies": {
     "dotenv": "^4.0.0",
