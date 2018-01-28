@@ -1,7 +1,7 @@
 // our packages
 const {fetchH2HStandings} = require('../../fplClient');
 
-describe('Fetch Standings', () => {
+describe('Fetch H2H Standings', () => {
   let response = {};
   beforeAll(async () => {
     const H2H_LEAGUE_ID = 28162;
