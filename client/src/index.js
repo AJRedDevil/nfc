@@ -1,6 +1,8 @@
+// npm packages
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import 'bulma/css/bulma.css';
+// our packages
+import App from './app';
 
-ReactDOM.render(<h1>NFC FPL</h1>, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
