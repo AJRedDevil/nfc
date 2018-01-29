@@ -6,6 +6,9 @@ const fastify = require('fastify')();
 // Register route
 fastify.register(require('./routes'));
 
+// Register CORS
+fastify.use(require('cors')());
+
 // Run the server!
 const start = async () => {
   try {
