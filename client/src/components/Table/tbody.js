@@ -32,7 +32,7 @@ TableRow.propTypes = {
 };
 
 const TBody = ({data}) => (
-  <tbody>{data.map(item => <TableRow key={item} data={item} />)}</tbody>
+  <tbody>{data && data.map(item => <TableRow key={item} data={item} />)}</tbody>
 );
 TBody.propTypes = {
   data: TablePropTypes.tableBody,
