@@ -1,3 +1,4 @@
-import classicAPI from './classic';
+import classicLeagueAPI from './classic';
+import h2hLeagueAPI from './h2h';
 
-export default classicAPI;
+export {classicLeagueAPI, h2hLeagueAPI};

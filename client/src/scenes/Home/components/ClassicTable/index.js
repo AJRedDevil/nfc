@@ -1,24 +1,38 @@
 // npm packages
-import React from 'react';
-import {shape, string} from 'prop-types';
+import React, {Component} from 'react';
 
 // our packages
 import TableHeading from '../../../../components/TableHeading';
 import Table from '../../../../components/Table';
-import ClassicPropType from '../../../../components/Table/propTypes';
+import {classicLeagueAPI} from '../../../../services/api';
 
-const ClassicTable = props => (
-  <div>
-    <TableHeading {...props} />
-    <Table {...props.data} />
-  </div>
-);
-ClassicTable.propTypes = {
-  data: shape({
-    head: ClassicPropType.tableHead,
-    body: ClassicPropType.tableBody,
-    foot: ClassicPropType.tableFoot,
-  }),
-};
+class ClassicTable extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: 'NFC Classic',
+      subtitle: 'Top 3',
+      data: {},
+    };
+  }
+
+  componentDidMount() {
+    classicLeagueAPI
+      .getTop3()
+      .then(data => this.setState({data}))
+      .catch(error => console.error(error));
+  }
+
+  render() {
+    return (
+      this.state.data && (
+        <div>
+          <TableHeading {...this.state} />
+          <Table {...this.state.data} />
+        </div>
+      )
+    );
+  }
+}
 
 export default ClassicTable;
