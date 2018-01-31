@@ -19,6 +19,7 @@ const filterTableData = rows =>
     row.event_total,
   ]);
 
+// TODO: Remove the dependency on localhost
 const API = (url => ({
   getTop3: () =>
     fetch(url)

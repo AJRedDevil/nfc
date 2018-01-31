@@ -1,9 +1,9 @@
 {
-  "H2H": {
-    "A": 11093,
-    "B": 28162,
-    "C": 52921,
-    "D": 50718
-  },
+  "H2H": [
+    {"division": "A", "leagueID": 11093},
+    {"division": "B", "leagueID": 28162},
+    {"division": "C", "leagueID": 52921},
+    {"division": "D", "leagueID": 50718}
+  ],
   "CLASSIC": 1827
 }
