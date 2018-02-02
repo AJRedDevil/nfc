@@ -1,5 +1,5 @@
 // npm packages
-import {first, flow, orderBy} from 'lodash';
+import {flow, groupBy, orderBy} from 'lodash';
 
 // our packages
 import head from '../../scenes/Home/components/H2HTable/head.json';
@@ -25,20 +25,37 @@ const getWeekResults = results =>
     ],
     []
   );
-const getSortedResults = weekResults =>
+const getSortedResult = weekResults =>
   orderBy(weekResults, 'event_total', 'desc');
-const getTop = flow(getResults, getWeekResults, getSortedResults, first);
+const groupScore = sortedResult => groupBy(sortedResult, 'event_total');
+const getGroupedScore = flow(
+  getResults,
+  getWeekResults,
+  getSortedResult,
+  groupScore
+);
+const getTop = grouped => {
+  const topScore = Object.keys(grouped).slice(-1)[0];
+  return grouped[topScore];
+};
 
 const getH2HWinner = (division, url) =>
   fetch(url)
     .then(response => response.json())
-    .then(h2hResponse => getTop(h2hResponse))
-    .then(winner => [
-      division,
-      winner.entry_name,
-      winner.player_name,
-      winner.event_total,
-    ])
+    .then(h2hResponse => getGroupedScore(h2hResponse))
+    .then(grouped => getTop(grouped))
+    .then(winnerList =>
+      winnerList.reduce(
+        (acc, winner) =>
+          acc.concat([
+            division,
+            winner.entry_name,
+            winner.player_name,
+            winner.event_total,
+          ]),
+        []
+      )
+    )
     .catch(error => console.error(error));
 
 const getBody = (leagues, url) =>

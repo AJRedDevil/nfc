@@ -1,5 +1,5 @@
 // npm packages
-import {flow, orderBy} from 'lodash';
+import {flow, groupBy, orderBy} from 'lodash';
 
 // our packages
 import head from '../../scenes/Home/components/ClassicTable/head.json';
@@ -8,24 +8,38 @@ import NFC_CONFIG from '../config/nfc.json';
 const getResults = standings =>
   standings.reduce((acc, item) => [...acc, ...item.standings.results], []);
 const getSortedResult = results => orderBy(results, 'event_total', 'desc');
-const first3 = arr => arr.slice(0, 3);
-const getTop3 = flow(getResults, getSortedResult, first3);
+const groupScore = sortedResult => groupBy(sortedResult, 'event_total');
+const getGroupedScore = flow(getResults, getSortedResult, groupScore);
+const getTop3 = grouped => {
+  const top3Score = Object.keys(grouped)
+    .slice(-3)
+    .reverse();
+  return top3Score.map(score => grouped[score]);
+};
 
+const filterPlayerData = (player, index) => [
+  index + 1,
+  player.entry_name,
+  player.player_name,
+  player.event_total,
+];
 const filterTableData = rows =>
-  rows.map((row, index) => [
-    index + 1,
-    row.entry_name,
-    row.player_name,
-    row.event_total,
-  ]);
+  rows.reduce(
+    (acc, row, index) => [
+      ...acc,
+      ...row.map(player => filterPlayerData(player, index)),
+    ],
+    []
+  );
 
 // TODO: Remove the dependency on localhost
 const API = (url => ({
   getTop3: () =>
     fetch(url)
       .then(response => response.json())
-      .then(standings => getTop3(standings))
-      .then(top3 => filterTableData(top3))
+      .then(standings => getGroupedScore(standings))
+      .then(grouped => getTop3(grouped))
+      .then(top3Players => filterTableData(top3Players))
       .then(body => ({
         head,
         body,
