@@ -10,6 +10,7 @@ import TableHeading from '../../../../components/TableHeading';
 import Table from '../../../../components/Table';
 import {fetchClassicData} from '../../../../services/classic/actions';
 import ClassicStandingsPropTypes from './PropTypes';
+import Animation from '../../../../components/animations';
 
 class ClassicStandings extends Component {
   componentDidMount() {
@@ -17,10 +18,12 @@ class ClassicStandings extends Component {
   }
 
   renderClassicStandings = props => (
-    <div>
-      <TableHeading {...props} />
-      <Table {...props.data} />
-    </div>
+    <Animation.Fade in>
+      <div>
+        <TableHeading {...props} />
+        <Table {...props.data} />
+      </div>
+    </Animation.Fade>
   );
 
   render() {

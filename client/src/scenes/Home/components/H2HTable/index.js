@@ -10,6 +10,7 @@ import TableHeading from '../../../../components/TableHeading';
 import Table from '../../../../components/Table';
 import {fetchH2HStandingsData} from '../../../../services/h2h/actions';
 import H2HStandingsPropTypes from './PropTypes';
+import Animation from '../../../../components/animations';
 
 class H2HStandings extends Component {
   componentDidMount() {
@@ -17,10 +18,12 @@ class H2HStandings extends Component {
   }
 
   renderH2HStandings = props => (
-    <div>
-      <TableHeading {...props} />
-      <Table {...props.data} />
-    </div>
+    <Animation.Fade in>
+      <div>
+        <TableHeading {...props} />
+        <Table {...props.data} />
+      </div>
+    </Animation.Fade>
   );
 
   render() {
