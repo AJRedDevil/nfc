@@ -9,9 +9,9 @@ import LoadingTable from '../../../../components/LoadingTable';
 import TableHeading from '../../../../components/TableHeading';
 import Table from '../../../../components/Table';
 import {fetchClassicData} from '../../../../services/classic/actions';
-import ClassicTablePropTypes from './PropTypes';
+import ClassicStandingsPropTypes from './PropTypes';
 
-class ClassicTable extends Component {
+class ClassicStandings extends Component {
   componentDidMount() {
     this.props.fetchClassicData();
   }
@@ -28,13 +28,13 @@ class ClassicTable extends Component {
     return size(classicStandingsData.data) > 0 ? (
       this.renderClassicStandings(classicStandingsData)
     ) : (
-      <LoadingTable />
+      <LoadingTable title="ClassicStandings" />
     );
   }
 }
-ClassicTable.propTypes = {
+ClassicStandings.propTypes = {
   fetchClassicData: func.isRequired,
-  classicStandingsData: ClassicTablePropTypes.data,
+  classicStandingsData: ClassicStandingsPropTypes.data,
 };
 
 const mapStateToProps = state => ({
@@ -45,4 +45,4 @@ const mapDispatchToProps = dispatch => ({
   fetchClassicData: () => dispatch(fetchClassicData()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ClassicTable);
+export default connect(mapStateToProps, mapDispatchToProps)(ClassicStandings);

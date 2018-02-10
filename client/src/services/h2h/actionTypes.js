@@ -1,0 +1,3 @@
+export const FETCH_DATA = '@H2H/FETCH_DATA';
+export const FETCH_DATA_REJECTED = '@H2H/FETCH_DATA_REJECTED';
+export const DATA_FETCHED = '@H2H/DATA_FETCHED';
