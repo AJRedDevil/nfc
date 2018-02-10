@@ -1,0 +1,2 @@
+export const FETCH_DATA = '@CLASSIC/FETCH_DATA';
+export const DATA_FETCHED = '@CLASSIC/DATA_FETCHED';

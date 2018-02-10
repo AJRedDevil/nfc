@@ -1,4 +1,6 @@
 // npm packages
+// eslint-disable-next-line no-unused-vars
+import rxjs from 'rxjs';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
