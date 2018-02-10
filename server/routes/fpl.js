@@ -38,7 +38,7 @@ async function routes(fastify, options) {
     handler: async (request, reply) => {
       try {
         const {id} = request.params;
-        logger.info(`classic: ${id}`);
+        logger.info(`h2h: ${id}`);
         const standings = await fetchH2HStandings(id);
         reply.send(standings);
       } catch (err) {
