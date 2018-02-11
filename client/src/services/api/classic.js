@@ -2,7 +2,7 @@
 import {flow, groupBy, orderBy} from 'lodash';
 
 // our packages
-import head from '../../scenes/Home/components/ClassicTable/head.json';
+import head from '../../scenes/Dashboard/components/ClassicTable/head.json';
 import NFC_CONFIG from '../config/nfc.json';
 
 const getResults = standings =>

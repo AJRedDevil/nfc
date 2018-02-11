@@ -5,11 +5,11 @@ import React from 'react';
 import ClassicTable from './components/ClassicTable';
 import H2HTable from './components/H2HTable';
 
-const Home = () => (
+const Dashboard = () => (
   <div>
     <ClassicTable />
     <H2HTable />
   </div>
 );
 
-export default Home;
+export default Dashboard;

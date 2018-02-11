@@ -2,7 +2,7 @@
 import {flow, groupBy, orderBy} from 'lodash';
 
 // our packages
-import head from '../../scenes/Home/components/H2HTable/head.json';
+import head from '../../scenes/Dashboard/components/H2HTable/head.json';
 import NFC_CONFIG from '../config/nfc.json';
 
 const getResults = h2hResponse => h2hResponse.matches_this.results;
