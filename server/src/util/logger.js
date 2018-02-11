@@ -11,7 +11,7 @@ const {createLogger, format, transports} = require('winston');
 
 const {combine, colorize, timestamp, label, printf} = format;
 
-const getLogDirectory = () => path.join(__dirname, '../', 'logs');
+const getLogDirectory = () => path.join(__dirname, '../../', 'logs');
 
 const myFormat = printf(
   info => `${info.timestamp} [${info.label}] ${info.level}: ${info.message}`
