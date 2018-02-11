@@ -18,6 +18,7 @@
   "plugins": ["prettier", "react" ,"jest"],
   "rules": {
     "constructor-super": "warn",
+    "jsx-a11y/anchor-is-valid": "off",
     "prettier/prettier": [
       "error",
       {
