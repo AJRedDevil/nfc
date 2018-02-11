@@ -2,19 +2,19 @@
 import {Observable} from 'rxjs';
 
 // our packages
-import {h2hStandingsDataFetched} from './actions';
+import {h2hStandingsDataFetched, extractH2HWinners} from './actions';
 import {FETCH_DATA, FETCH_DATA_REJECTED} from './actionTypes';
 import {h2hLeagueAPI} from '../api';
 
 const fetchH2HStandingsEpic = action$ =>
   action$
     .ofType(FETCH_DATA)
-    .mergeMap(() => h2hLeagueAPI.getWinners())
-    .map(response =>
-      h2hStandingsDataFetched({
-        body: response,
-        head: h2hLeagueAPI.getHeadings(),
-      })
+    .mergeMap(() => h2hLeagueAPI.getH2HStandings())
+    .flatMap(response =>
+      Observable.concat(
+        Observable.of(h2hStandingsDataFetched(response)),
+        Observable.of(extractH2HWinners(response))
+      )
     )
     .catch(error =>
       Observable.of({

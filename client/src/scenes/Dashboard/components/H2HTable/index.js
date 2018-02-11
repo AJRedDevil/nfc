@@ -20,8 +20,8 @@ class H2HStandings extends Component {
   renderH2HStandings = props => (
     <Animation.Fade in>
       <div>
-        <TableHeading {...props} />
-        <Table {...props.data} />
+        <TableHeading {...props.schema} />
+        <Table body={props.winners} {...props.schema} />
       </div>
     </Animation.Fade>
   );

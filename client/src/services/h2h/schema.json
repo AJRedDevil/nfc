@@ -1,0 +1,14 @@
+{
+  "schema": {
+    "title": "NFC H2H",
+    "subtitle": "Winners",
+    "head": [
+      {"text": "Division"},
+      {"text": "Team Name"},
+      {"text": "Player Name"},
+      {"text": "Gameweek Points"}
+    ]
+  },
+  "winners": [],
+  "data": []
+}
