@@ -1,12 +1,13 @@
-import {FETCH_DATA, FETCH_DATA_REJECTED, DATA_FETCHED} from './actionTypes';
+import {
+  FETCH_DATA,
+  FETCH_DATA_REJECTED,
+  DATA_FETCHED,
+  EXTRACT_WINNERS,
+} from './actionTypes';
+import initialState from './schema.json';
+import Util from './util';
 
-const intialState = {
-  title: 'NFC Classic',
-  subtitle: 'Top 3',
-  data: {},
-};
-
-const classicStandings = (state = intialState, action) => {
+const classicStandings = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_DATA:
       return state;
@@ -17,6 +18,8 @@ const classicStandings = (state = intialState, action) => {
     }
     case DATA_FETCHED:
       return {...state, data: action.payload};
+    case EXTRACT_WINNERS:
+      return {...state, winners: Util.getClassicWinners(action.payload)};
     default:
       return state;
   }

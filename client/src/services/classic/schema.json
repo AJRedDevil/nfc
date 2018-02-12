@@ -1,0 +1,13 @@
+{
+  "schema": {
+    "title": "NFC Classic",
+    "subtitle": "Top 3",
+    "head": [
+      {"text": "Position"},
+      {"text": "Team Name"},
+      {"text": "Player Name"},
+      {"text": "Gameweek Points"}
+    ]
+  },
+  "data": []
+}
