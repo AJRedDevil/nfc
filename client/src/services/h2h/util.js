@@ -43,19 +43,16 @@ const getAllStandings = h2hStandings =>
 
 const getH2HWinners = h2hStandings => {
   const allStandings = getAllStandings(h2hStandings);
-  const result = Object.keys(allStandings).map(division => {
+  const result = Object.keys(allStandings).reduce((winners, division) => {
     const divisionStandings = allStandings[division];
     const divisionWinners = getTop(getGroupedScore(divisionStandings));
-    // TODO: Still not convinced. Need to resolve it i.e. flatten Array
-    return divisionWinners.reduce(
-      (acc, winner) =>
-        acc.concat([
-          division,
-          winner.entry_name,
-          winner.player_name,
-          winner.event_total,
-        ]),
-      []
+    return winners.concat(
+      divisionWinners.map(winner => [
+        division,
+        winner.entry_name,
+        winner.player_name,
+        winner.event_total,
+      ])
     );
   }, []);
   return result;
