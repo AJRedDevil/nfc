@@ -1,12 +1,20 @@
-import {array, arrayOf, shape, string} from 'prop-types';
+import {array, arrayOf, object, shape, string} from 'prop-types';
 
 const head = arrayOf(shape({text: string}));
 
-const body = arrayOf(array);
-
-const data = shape({
+const schema = shape({
+  title: string,
+  subTitle: string,
   head,
-  body,
 });
 
-export default {data};
+const data = shape({
+  leagueName: string,
+  creationDate: string,
+  lastFetched: string,
+  standings: arrayOf(object),
+});
+
+const top3 = arrayOf(array);
+
+export default {schema, data, top3};

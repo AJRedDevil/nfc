@@ -2,19 +2,23 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {func} from 'prop-types';
-import {size} from 'lodash';
+import {isEmpty, size} from 'lodash';
 
 // our packages
 import LoadingTable from '../../../../components/LoadingTable';
 import TableHeading from '../../../../components/TableHeading';
 import Table from '../../../../components/Table';
-import {fetchClassicData} from '../../../../services/classic/actions';
 import ClassicStandingsPropTypes from './PropTypes';
 import Animation from '../../../../components/animations';
+import DateHelper from '../../../../utils';
+import {fetchClassicData} from '../../../../services/classic/actions';
 
 class ClassicWinners extends Component {
   componentDidMount() {
-    this.props.fetchClassicData();
+    const {lastFetched, standings} = this.props.data;
+    if (isEmpty(standings) || DateHelper.isAnHourAgo(lastFetched)) {
+      this.props.fetchClassicData();
+    }
   }
 
   renderClassicWinners = props => (
@@ -27,21 +31,25 @@ class ClassicWinners extends Component {
   );
 
   render() {
-    const {classicStandingsData} = this.props;
-    return size(classicStandingsData.data) > 0 ? (
-      this.renderClassicWinners(classicStandingsData)
+    const {schema, top3} = this.props;
+    return size(top3) > 0 ? (
+      this.renderClassicWinners({schema, top3})
     ) : (
       <LoadingTable title="ClassicWinners" />
     );
   }
 }
 ClassicWinners.propTypes = {
+  data: ClassicStandingsPropTypes.data,
   fetchClassicData: func.isRequired,
-  classicStandingsData: ClassicStandingsPropTypes.data,
+  schema: ClassicStandingsPropTypes.schema,
+  top3: ClassicStandingsPropTypes.top3,
 };
 
 const mapStateToProps = state => ({
-  classicStandingsData: state.ClassicStandings,
+  data: state.ClassicStandings.data,
+  schema: state.ClassicStandings.schema,
+  top3: state.ClassicStandings.top3,
 });
 
 const mapDispatchToProps = dispatch => ({
