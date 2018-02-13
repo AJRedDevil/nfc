@@ -30,7 +30,7 @@ const h2hStandings = (state = initialState, action) => {
       return state;
     }
     case DATA_FETCHED:
-      return {...state, data: action.payload};
+      return {...state, data: Util.getH2HStandings(action.payload)};
     case EXTRACT_WINNERS:
       return {...state, winners: Util.getH2HWinners(action.payload)};
     default:

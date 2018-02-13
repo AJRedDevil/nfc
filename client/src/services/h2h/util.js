@@ -35,7 +35,22 @@ const getTop = grouped => {
   return grouped[topScore];
 };
 
-const getDivisionsStandings = h2hAllDivisionsData => {};
+const getDivisionsStandings = h2hAllDivisionsData =>
+  h2hAllDivisionsData.reduce(
+    (divisionStandings, h2hDivisionData) => {
+      const temp = {};
+      temp.divisions = [
+        ...divisionStandings.divisions,
+        h2hDivisionData.league.name,
+      ];
+      temp.standings = [
+        ...divisionStandings.standings,
+        h2hDivisionData.standings.results,
+      ];
+      return temp;
+    },
+    {divisions: [], standings: []}
+  );
 
 const getH2HWinners = h2hAllDivisionsData => {
   const result = h2hAllDivisionsData.reduce((winners, h2hDivisionData) => {
