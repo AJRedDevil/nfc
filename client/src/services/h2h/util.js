@@ -34,18 +34,13 @@ const getTop = grouped => {
   const topScore = Object.keys(grouped).slice(-1)[0];
   return grouped[topScore];
 };
-const getAllStandings = h2hStandings =>
-  h2hStandings.reduce(
-    (standings, divisionStandings) =>
-      Object.assign({...standings, ...divisionStandings}),
-    {}
-  );
 
-const getH2HWinners = h2hStandings => {
-  const allStandings = getAllStandings(h2hStandings);
-  const result = Object.keys(allStandings).reduce((winners, division) => {
-    const divisionStandings = allStandings[division];
-    const divisionWinners = getTop(getGroupedScore(divisionStandings));
+const getDivisionsStandings = h2hAllDivisionsData => {};
+
+const getH2HWinners = h2hAllDivisionsData => {
+  const result = h2hAllDivisionsData.reduce((winners, h2hDivisionData) => {
+    const division = h2hDivisionData.league.name;
+    const divisionWinners = getTop(getGroupedScore({...h2hDivisionData}));
     return winners.concat(
       divisionWinners.map(winner => [
         division,
@@ -57,5 +52,10 @@ const getH2HWinners = h2hStandings => {
   }, []);
   return result;
 };
+// divisions[''], standings [[{}]]
+const getH2HStandings = h2hStandings => ({
+  lastFetched: new Date().toISOString(),
+  ...getDivisionsStandings(h2hStandings),
+});
 
-export default {getH2HWinners};
+export default {getH2HWinners, getH2HStandings};

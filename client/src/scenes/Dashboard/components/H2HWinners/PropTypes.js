@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types';
 
-const data = PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object));
+const data = PropTypes.shape({
+  lastFetched: PropTypes.string,
+  divisions: PropTypes.arrayOf(PropTypes.string),
+  standings: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)),
+});
 
 const head = PropTypes.arrayOf(PropTypes.shape({text: PropTypes.string}));
 

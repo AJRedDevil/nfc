@@ -13,7 +13,11 @@ const initialState = {
   h2hLeagueSchema,
   winnersSchema,
   winners: [],
-  data: [],
+  data: {
+    lastFetched: '',
+    divisions: [],
+    standings: [],
+  },
 };
 
 const h2hStandings = (state = initialState, action) => {

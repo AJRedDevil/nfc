@@ -1,17 +1,17 @@
 // our packages
 import NFC_CONFIG from '../config/nfc.json';
 
-const getH2HUrl = url => item => `${url}/${item.leagueID}`;
+const getH2HUrl = url => id => `${url}/${id}`;
 
 const getData = url =>
   fetch(url)
     .then(response => response.json())
     .catch(error => console.error(error));
 
-const fetchH2HStandingsData = (leagues, h2hURL) =>
-  leagues.map(item =>
-    getData(h2hURL(item))
-      .then(response => ({[item.division]: response}))
+const fetchH2HStandingsData = (leagueIDs, h2hURL) =>
+  leagueIDs.map(leagueID =>
+    getData(h2hURL(leagueID))
+      .then(response => response)
       .catch(error => console.error(error))
   );
 
