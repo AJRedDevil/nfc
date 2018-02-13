@@ -12,16 +12,16 @@ import {fetchClassicData} from '../../../../services/classic/actions';
 import ClassicStandingsPropTypes from './PropTypes';
 import Animation from '../../../../components/animations';
 
-class ClassicStandings extends Component {
+class ClassicWinners extends Component {
   componentDidMount() {
     this.props.fetchClassicData();
   }
 
-  renderClassicStandings = props => (
+  renderClassicWinners = props => (
     <Animation.Fade in>
       <div>
         <TableHeading {...props.schema} />
-        <Table body={props.winners} {...props.schema} />
+        <Table body={props.top3} {...props.schema} />
       </div>
     </Animation.Fade>
   );
@@ -29,13 +29,13 @@ class ClassicStandings extends Component {
   render() {
     const {classicStandingsData} = this.props;
     return size(classicStandingsData.data) > 0 ? (
-      this.renderClassicStandings(classicStandingsData)
+      this.renderClassicWinners(classicStandingsData)
     ) : (
-      <LoadingTable title="ClassicStandings" />
+      <LoadingTable title="ClassicWinners" />
     );
   }
 }
-ClassicStandings.propTypes = {
+ClassicWinners.propTypes = {
   fetchClassicData: func.isRequired,
   classicStandingsData: ClassicStandingsPropTypes.data,
 };
@@ -48,4 +48,4 @@ const mapDispatchToProps = dispatch => ({
   fetchClassicData: () => dispatch(fetchClassicData()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ClassicStandings);
+export default connect(mapStateToProps, mapDispatchToProps)(ClassicWinners);

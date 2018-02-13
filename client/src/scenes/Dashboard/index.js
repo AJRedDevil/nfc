@@ -2,13 +2,13 @@
 import React from 'react';
 
 // our packages
-import ClassicTable from './components/ClassicTable';
-import H2HTable from './components/H2HTable';
+import ClassicWinners from './components/ClassicWinners';
+import H2HWinners from './components/H2HWinners';
 
 const Dashboard = () => (
   <div>
-    <ClassicTable />
-    <H2HTable />
+    <ClassicWinners />
+    <H2HWinners />
   </div>
 );
 

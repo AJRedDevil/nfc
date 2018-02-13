@@ -12,12 +12,12 @@ import {fetchH2HStandingsData} from '../../../../services/h2h/actions';
 import H2HStandingsPropTypes from './PropTypes';
 import Animation from '../../../../components/animations';
 
-class H2HStandings extends Component {
+class H2HWinners extends Component {
   componentDidMount() {
     this.props.fetchH2HStandingsData();
   }
 
-  renderH2HStandings = props => (
+  renderH2HWinners = props => (
     <Animation.Fade in>
       <div>
         <TableHeading {...props.schema} />
@@ -29,13 +29,13 @@ class H2HStandings extends Component {
   render() {
     const {h2hStandingsData} = this.props;
     return size(h2hStandingsData.data) > 0 ? (
-      this.renderH2HStandings(h2hStandingsData)
+      this.renderH2HWinners(h2hStandingsData)
     ) : (
-      <LoadingTable title="H2HStandings" />
+      <LoadingTable title="H2HWinners" />
     );
   }
 }
-H2HStandings.propTypes = {
+H2HWinners.propTypes = {
   fetchH2HStandingsData: func.isRequired,
   h2hStandingsData: H2HStandingsPropTypes.data,
 };
@@ -48,4 +48,4 @@ const mapDispatchToProps = dispatch => ({
   fetchH2HStandingsData: () => dispatch(fetchH2HStandingsData()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(H2HStandings);
+export default connect(mapStateToProps, mapDispatchToProps)(H2HWinners);
