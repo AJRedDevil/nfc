@@ -1,13 +1,16 @@
 // npm packages
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {arrayOf, func, object, shape, string} from 'prop-types';
+import PropTypes from 'prop-types';
 import {isEmpty} from 'lodash';
 
 // our packages
-import {fetchClassicData} from '../../services/classic/actions';
+import LeagueTitle from './LeagueTitle';
+import LeagueStandngs from './LeagueStandings';
 import LoadingTable from '../../components/LoadingTable';
 import DateHelper from '../../utils';
+import ClassicLeaguePropTypes from './PropTypes';
+import {fetchClassicData} from '../../services/classic/actions';
 
 class ClassicLeague extends Component {
   componentDidMount() {
@@ -17,16 +20,12 @@ class ClassicLeague extends Component {
     }
   }
 
-  renderTitleSubtitle = () => (
+  renderClassicStandings = () => (
     <div>
-      <h1 className="title">{this.props.data.leagueName}</h1>
-      <h2 className="subtitle">
-        Created : {DateHelper.ISOToDateString(this.props.data.creationDate)}
-      </h2>
+      <LeagueTitle {...this.props.data} />
+      <LeagueStandngs {...this.props.data} {...this.props.schema} />
     </div>
   );
-
-  renderClassicStandings = () => this.renderTitleSubtitle();
 
   render() {
     return isEmpty(this.props.data.standings) ? (
@@ -37,17 +36,14 @@ class ClassicLeague extends Component {
   }
 }
 ClassicLeague.propTypes = {
-  data: shape({
-    leagueName: string,
-    creationDate: string,
-    lastFetched: string,
-    standings: arrayOf(object),
-  }),
-  fetchClassicData: func.isRequired,
+  schema: ClassicLeaguePropTypes.classicLeagueSchema,
+  data: ClassicLeaguePropTypes.data,
+  fetchClassicData: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
   data: state.ClassicStandings.data,
+  schema: state.ClassicStandings.classicLeagueSchema,
 });
 
 const mapDispatchToProps = dispatch => ({

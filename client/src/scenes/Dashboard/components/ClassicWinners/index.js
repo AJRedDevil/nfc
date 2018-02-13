@@ -1,7 +1,7 @@
 // npm packages
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {func} from 'prop-types';
+import PropTypes from 'prop-types';
 import {isEmpty, size} from 'lodash';
 
 // our packages
@@ -41,14 +41,14 @@ class ClassicWinners extends Component {
 }
 ClassicWinners.propTypes = {
   data: ClassicStandingsPropTypes.data,
-  fetchClassicData: func.isRequired,
-  schema: ClassicStandingsPropTypes.schema,
+  fetchClassicData: PropTypes.func.isRequired,
+  schema: ClassicStandingsPropTypes.top3Schema,
   top3: ClassicStandingsPropTypes.top3,
 };
 
 const mapStateToProps = state => ({
   data: state.ClassicStandings.data,
-  schema: state.ClassicStandings.schema,
+  schema: state.ClassicStandings.top3Schema,
   top3: state.ClassicStandings.top3,
 });
 

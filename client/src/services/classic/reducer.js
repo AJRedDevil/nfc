@@ -1,11 +1,24 @@
+// our packages
 import {
   FETCH_DATA,
   FETCH_DATA_REJECTED,
   DATA_FETCHED,
   EXTRACT_WINNERS,
 } from './actionTypes';
-import initialState from './schema.json';
+import classicLeagueSchema from './classicLeagueSchema.json';
+import top3Schema from './top3Schema.json';
 import Util from './util';
+
+const initialState = {
+  classicLeagueSchema,
+  top3Schema,
+  data: {
+    leagueName: '',
+    creationDate: '',
+    lastFetched: '',
+    standings: [],
+  },
+};
 
 const classicStandings = (state = initialState, action) => {
   switch (action.type) {

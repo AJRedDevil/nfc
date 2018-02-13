@@ -1,20 +1,22 @@
-import {array, arrayOf, object, shape, string} from 'prop-types';
+import PropTypes from 'prop-types';
 
-const head = arrayOf(shape({text: string}));
+const head = PropTypes.arrayOf(
+  PropTypes.shape({text: PropTypes.string.isRequired})
+);
 
-const schema = shape({
-  title: string,
-  subTitle: string,
+const top3Schema = PropTypes.shape({
+  title: PropTypes.string.isRequired,
+  subTitle: PropTypes.string.isRequired,
   head,
 });
 
-const data = shape({
-  leagueName: string,
-  creationDate: string,
-  lastFetched: string,
-  standings: arrayOf(object),
+const data = PropTypes.shape({
+  leagueName: PropTypes.string,
+  creationDate: PropTypes.string,
+  lastFetched: PropTypes.string,
+  standings: PropTypes.arrayOf(PropTypes.object),
 });
 
-const top3 = arrayOf(array);
+const top3 = PropTypes.arrayOf(PropTypes.array);
 
-export default {schema, data, top3};
+export default {top3Schema, data, top3};

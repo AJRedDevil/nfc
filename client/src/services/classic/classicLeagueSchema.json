@@ -1,0 +1,9 @@
+{
+  "head": [
+    {"text": "Rank"},
+    {"text": "Team"},
+    {"text": "Manager"},
+    {"text": "GW"},
+    {"text": "TOT"}
+  ]
+}
