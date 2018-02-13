@@ -5,8 +5,16 @@ import {
   DATA_FETCHED,
   EXTRACT_WINNERS,
 } from './actionTypes';
-import initialState from './schema.json';
+import h2hLeagueSchema from './h2hLeagueSchema.json';
+import winnersSchema from './winnersSchema.json';
 import Util from './util';
+
+const initialState = {
+  h2hLeagueSchema,
+  winnersSchema,
+  winners: [],
+  data: [],
+};
 
 const h2hStandings = (state = initialState, action) => {
   switch (action.type) {
