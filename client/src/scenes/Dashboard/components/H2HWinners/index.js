@@ -1,7 +1,7 @@
 // npm packages
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {func} from 'prop-types';
+import PropTypes from 'prop-types';
 import {size} from 'lodash';
 
 // our packages
@@ -9,7 +9,7 @@ import LoadingTable from '../../../../components/LoadingTable';
 import TableHeading from '../../../../components/TableHeading';
 import Table from '../../../../components/Table';
 import {fetchH2HStandingsData} from '../../../../services/h2h/actions';
-import H2HStandingsPropTypes from './PropTypes';
+import H2HWinnersPropTypes from './PropTypes';
 import Animation from '../../../../components/animations';
 
 class H2HWinners extends Component {
@@ -20,28 +20,31 @@ class H2HWinners extends Component {
   renderH2HWinners = props => (
     <Animation.Fade in>
       <div>
-        <TableHeading {...props.winnersSchema} />
-        <Table body={props.winners} {...props.winnersSchema} />
+        <TableHeading {...props.schema} />
+        <Table body={props.winners} {...props.schema} />
       </div>
     </Animation.Fade>
   );
 
   render() {
-    const {h2hStandingsData} = this.props;
-    return size(h2hStandingsData.data) > 0 ? (
-      this.renderH2HWinners(h2hStandingsData)
+    const {winners, schema} = this.props;
+    return size(winners) > 0 ? (
+      this.renderH2HWinners({schema, winners})
     ) : (
       <LoadingTable title="H2HWinners" />
     );
   }
 }
 H2HWinners.propTypes = {
-  fetchH2HStandingsData: func.isRequired,
-  h2hStandingsData: H2HStandingsPropTypes.data,
+  fetchH2HStandingsData: PropTypes.func.isRequired,
+  winners: H2HWinnersPropTypes.winners,
+  schema: H2HWinnersPropTypes.winnersSchema,
 };
 
 const mapStateToProps = state => ({
-  h2hStandingsData: state.H2HStandings,
+  data: state.H2HStandings.data,
+  schema: state.H2HStandings.winnersSchema,
+  winners: state.H2HStandings.winners,
 });
 
 const mapDispatchToProps = dispatch => ({
