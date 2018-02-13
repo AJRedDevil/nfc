@@ -1,6 +1,11 @@
 // npm packages
 import {flow, groupBy, orderBy} from 'lodash';
 
+const getLeagueInfo = standings => ({
+  leagueName: standings[0].league.name,
+  creationDate: standings[0].league.created,
+  lastFetched: new Date().toISOString(),
+});
 const getResults = standings =>
   standings.reduce((acc, item) => [...acc, ...item.standings.results], []);
 const getSortedResult = results => orderBy(results, 'event_total', 'desc');
@@ -12,7 +17,6 @@ const getTop3 = grouped => {
     .reverse();
   return top3Score.map(score => grouped[score]);
 };
-
 const filterPlayerData = (player, index) => [
   index + 1,
   player.entry_name,
@@ -31,6 +35,10 @@ const filterTableData = rows =>
 const getClassicWinners = classicStandings => {
   const winners = flow(getGroupedScore, getTop3, filterTableData);
   return winners(classicStandings);
-}
+};
+const getStandings = standings =>
+  Object.assign({}, getLeagueInfo(standings), {
+    standings: getResults(standings),
+  });
 
-export default {getClassicWinners};
+export default {getClassicWinners, getStandings};

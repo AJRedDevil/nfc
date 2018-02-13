@@ -9,5 +9,10 @@
       {"text": "Gameweek Points"}
     ]
   },
-  "data": []
+  "data": {
+    "leagueName": "",
+    "creationDate": "",
+    "lastFetched": "",
+    "standings": []
+  }
 }

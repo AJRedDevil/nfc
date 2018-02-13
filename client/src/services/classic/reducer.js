@@ -17,7 +17,7 @@ const classicStandings = (state = initialState, action) => {
       return state;
     }
     case DATA_FETCHED:
-      return {...state, data: action.payload};
+      return {...state, data: Util.getStandings(action.payload)};
     case EXTRACT_WINNERS:
       return {...state, top3: Util.getClassicWinners(action.payload)};
     default:
