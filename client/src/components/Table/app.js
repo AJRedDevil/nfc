@@ -14,7 +14,7 @@ const Table = ({head, body, foot}) => (
         <div className="tile">
           <div className="tile is-parent is-vertical">
             <article className="tile is-child notification is-primary">
-              <table className="table">
+              <table className="table is-fullwidth">
                 <THead data={head} />
                 <TFoot data={foot} />
                 <TBody data={body} />
