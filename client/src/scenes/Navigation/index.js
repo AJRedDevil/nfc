@@ -1,86 +1,41 @@
 // npm packages
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 
-const linkPaths = {
-  DASHBOARD: '/',
-  CLASSICLEAGUE: '/classicleague',
-  H2HLEAGUE: '/h2hleague',
-};
+const linkPaths = [
+  ['/', 'Dashboard'],
+  ['/classicleague', 'Classic League'],
+  ['/h2hleague', 'H2H League'],
+];
 
-const getFirstPath = urlPath => `/${urlPath.split('/')[1]}`;
+const activateCurrent = props =>
+  props.linkPath === props.location.pathname ? 'is-active' : '';
 
-const LinkTab = props => {
-  const isActive = props.currentPath === props.linkPath;
-  const className = isActive ? 'is-active' : '';
-  const {onTabClick} = props;
-  return (
-    <li className={className}>
-      <Link to={props.linkPath} onClick={onTabClick}>
-        {props.text}
-      </Link>
-    </li>
-  );
-};
+const LinkTab = props => (
+  <li className={activateCurrent(props)}>
+    <Link to={props.linkPath}>{props.text}</Link>
+  </li>
+);
 LinkTab.propTypes = {
-  currentPath: PropTypes.string.isRequired,
   linkPath: PropTypes.string.isRequired,
-  onTabClick: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
 };
 
-class Navigation extends Component {
-  handleTabClick = e => {
-    const currentPath = e.target.getAttribute('href');
-    this.setState({
-      ...this.state,
-      currentPath,
-    });
-  };
+const LinkTabWithRouter = withRouter(LinkTab);
 
-  render() {
-    const currentPath = getFirstPath(this.props.router.location.pathname);
-    return (
-      <div className="tabs is-boxed">
-        <ul>
-          <LinkTab
-            linkPath={linkPaths.DASHBOARD}
-            text="Dashboard"
-            currentPath={currentPath}
-            onTabClick={this.handleTabClick}
-          />
-          <LinkTab
-            linkPath={linkPaths.CLASSICLEAGUE}
-            text="Classic League"
-            currentPath={currentPath}
-            onTabClick={this.handleTabClick}
-          />
-          <LinkTab
-            linkPath={linkPaths.H2HLEAGUE}
-            text="H2H League"
-            currentPath={currentPath}
-            onTabClick={this.handleTabClick}
-          />
-        </ul>
-      </div>
-    );
-  }
-}
-Navigation.propTypes = {
-  router: PropTypes.shape({
-    location: PropTypes.shape({
-      pathname: PropTypes.string,
-      search: PropTypes.string,
-      hash: PropTypes.string,
-      key: PropTypes.string,
-    }),
-  }).isRequired,
-};
+const Navigation = () => (
+  <div className="tabs is-boxed">
+    <ul>
+      {linkPaths.map(linkPath => (
+        <LinkTabWithRouter
+          key={linkPath[1]}
+          linkPath={linkPath[0]}
+          text={linkPath[1]}
+        />
+      ))}
+    </ul>
+  </div>
+);
 
-const mapStateToProps = state => ({
-  router: state.router,
-});
-
-export default connect(mapStateToProps, {})(Navigation);
+export default Navigation;
