@@ -5,28 +5,8 @@ import PropTypes from 'prop-types';
 // our packages
 import LinkTab from '../../components/LinkTab';
 
-const makePath = text =>
-  text
-    .split(' ')
-    .join('')
-    .toLowerCase();
-
-const getLinks = leagueNames =>
-  leagueNames.map(leagueName => ({
-    path: makePath(leagueName),
-    text: leagueName,
-  }));
-
 class H2HTitle extends Component {
-  state = {currentTab: '', links: []};
-
-  componentWillMount() {
-    const links = getLinks(this.props.leagueNames);
-    this.setState({
-      links,
-      currentTab: links[0].path,
-    });
-  }
+  state = {currentTab: this.props.links[0].path};
 
   handleTabClick = e => {
     const currentTab = e.target.getAttribute('identifier');
@@ -37,7 +17,7 @@ class H2HTitle extends Component {
   };
 
   render() {
-    const {links} = this.state;
+    const {links} = this.props;
     return (
       <div className="tabs">
         <ul>
@@ -56,7 +36,12 @@ class H2HTitle extends Component {
   }
 }
 H2HTitle.propTypes = {
-  leagueNames: PropTypes.arrayOf(PropTypes.string.isRequired),
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      path: PropTypes.string,
+      text: PropTypes.string,
+    })
+  ),
 };
 
 export default H2HTitle;

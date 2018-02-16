@@ -1,17 +1,36 @@
 // npm packages
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {isEmpty} from 'lodash';
+import {isEqual, isEmpty} from 'lodash';
 import {connect} from 'react-redux';
 
 // our packages
 import H2HTitle from './H2HTitle';
+import H2HStandings from './H2HStandings';
 import H2HLeaguePropTypes from './PropTypes';
 import LoadingTable from '../../components/LoadingTable';
 import DateHelper from '../../utils';
 import {fetchH2HStandingsData} from '../../services/h2h/actions';
 
+const makePath = text =>
+  text
+    .split(' ')
+    .join('')
+    .toLowerCase();
+
+const getLinks = leagueNames =>
+  leagueNames.map(leagueName => ({
+    path: makePath(leagueName),
+    text: leagueName,
+  }));
+
 class H2HLeague extends Component {
+  constructor(props) {
+    super(props);
+    const {leagueNames} = this.props.data;
+    this.state = {links: isEmpty(leagueNames) ? [] : getLinks(leagueNames)};
+  }
+
   componentDidMount() {
     const {lastFetched, standings} = this.props.data;
     if (isEmpty(standings) || DateHelper.isAnHourAgo(lastFetched)) {
@@ -19,9 +38,18 @@ class H2HLeague extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (!isEqual(this.props.data.leagueNames, nextProps.data.leagueNames)) {
+      this.setState({
+        links: getLinks(nextProps.data.leagueNames),
+      });
+    }
+  }
+
   renderH2HStandings = () => (
     <div>
-      <H2HTitle leagueNames={this.props.data.leagueNames} />
+      <H2HTitle links={this.state.links} />
+      <H2HStandings {...this.props.data} {...this.props.schema} />
     </div>
   );
 
@@ -34,7 +62,7 @@ class H2HLeague extends Component {
   }
 }
 H2HLeague.propTypes = {
-  // schema: H2HLeaguePropTypes.h2hLeagueSchema,
+  schema: H2HLeaguePropTypes.h2hLeagueSchema,
   data: H2HLeaguePropTypes.data,
   fetchH2HData: PropTypes.func.isRequired,
 };

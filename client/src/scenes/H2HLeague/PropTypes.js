@@ -4,7 +4,7 @@ const head = PropTypes.arrayOf(PropTypes.shape({text: PropTypes.string}));
 
 const body = PropTypes.arrayOf(PropTypes.object);
 
-const h2hLeagueSchema = PropTypes.shape(head);
+const h2hLeagueSchema = PropTypes.shape({head: PropTypes.array});
 
 const data = PropTypes.shape({
   lastFetched: PropTypes.string,
