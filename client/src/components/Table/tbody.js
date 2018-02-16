@@ -20,9 +20,11 @@ const TableRow = ({data}) => (
     {data.map(
       (rowData, index) =>
         index === 0 ? (
-          <TableHeader key={rowData} data={rowData} />
+          // eslint-disable-next-line react/no-array-index-key
+          <TableHeader key={`${index}-${rowData}`} data={rowData} />
         ) : (
-          <TableData key={rowData} data={rowData} />
+          // eslint-disable-next-line react/no-array-index-key
+          <TableData key={`${index}-${rowData}`} data={rowData} />
         )
     )}
   </tr>
