@@ -1,5 +1,7 @@
 // npm packages
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 // our packages
 import LinkTab from '../../components/LinkTab';
@@ -11,11 +13,7 @@ const NAVIGATION_LINKS = [
 ];
 
 class Navigation extends Component {
-  state = {currentTab: ''};
-
-  componentWillMount() {
-    this.setState({currentTab: NAVIGATION_LINKS[0].path});
-  }
+  state = {currentTab: this.props.router.location.pathname.split('/')[1]};
 
   handleTabClick = e => {
     const currentTab = e.target.getAttribute('identifier');
@@ -42,5 +40,19 @@ class Navigation extends Component {
     );
   }
 }
+Navigation.propTypes = {
+  router: PropTypes.shape({
+    location: PropTypes.shape({
+      pathname: PropTypes.string,
+      search: PropTypes.string,
+      hash: PropTypes.string,
+      key: PropTypes.string,
+    }),
+  }),
+};
 
-export default Navigation;
+const mapStateToProps = state => ({
+  router: state.router,
+});
+
+export default connect(mapStateToProps)(Navigation);
