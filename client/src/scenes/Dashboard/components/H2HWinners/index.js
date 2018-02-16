@@ -1,20 +1,24 @@
 // npm packages
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {size} from 'lodash';
+import {connect} from 'react-redux';
+import {isEmpty, size} from 'lodash';
 
 // our packages
 import LoadingTable from '../../../../components/LoadingTable';
 import TableHeading from '../../../../components/TableHeading';
 import Table from '../../../../components/Table';
-import {fetchH2HStandingsData} from '../../../../services/h2h/actions';
 import H2HWinnersPropTypes from './PropTypes';
 import Animation from '../../../../components/animations';
+import DateHelper from '../../../../utils';
+import {fetchH2HStandingsData} from '../../../../services/h2h/actions';
 
 class H2HWinners extends Component {
   componentDidMount() {
-    this.props.fetchH2HStandingsData();
+    const {lastFetched, standings} = this.props.data;
+    if (isEmpty(standings) || DateHelper.isAnHourAgo(lastFetched)) {
+      this.props.fetchH2HStandingsData();
+    }
   }
 
   renderH2HWinners = props => (
@@ -36,6 +40,7 @@ class H2HWinners extends Component {
   }
 }
 H2HWinners.propTypes = {
+  data: H2HWinnersPropTypes.data,
   fetchH2HStandingsData: PropTypes.func.isRequired,
   winners: H2HWinnersPropTypes.winners,
   schema: H2HWinnersPropTypes.winnersSchema,
