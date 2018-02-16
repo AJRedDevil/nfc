@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 const data = PropTypes.shape({
   lastFetched: PropTypes.string,
-  divisions: PropTypes.arrayOf(PropTypes.string),
+  leagueNames: PropTypes.arrayOf(PropTypes.string),
   standings: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)),
 });
 

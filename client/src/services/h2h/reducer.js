@@ -15,7 +15,7 @@ const initialState = {
   winners: [],
   data: {
     lastFetched: '',
-    divisions: [],
+    leagueNames: [],
     standings: [],
   },
 };

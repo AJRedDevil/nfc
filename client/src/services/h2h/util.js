@@ -39,8 +39,8 @@ const getDivisionsStandings = h2hAllDivisionsData =>
   h2hAllDivisionsData.reduce(
     (divisionStandings, h2hDivisionData) => {
       const temp = {};
-      temp.divisions = [
-        ...divisionStandings.divisions,
+      temp.leagueNames = [
+        ...divisionStandings.leagueNames,
         h2hDivisionData.league.name,
       ];
       temp.standings = [
@@ -49,7 +49,7 @@ const getDivisionsStandings = h2hAllDivisionsData =>
       ];
       return temp;
     },
-    {divisions: [], standings: []}
+    {leagueNames: [], standings: []}
   );
 
 const getH2HWinners = h2hAllDivisionsData => {
@@ -67,7 +67,6 @@ const getH2HWinners = h2hAllDivisionsData => {
   }, []);
   return result;
 };
-// divisions[''], standings [[{}]]
 const getH2HStandings = h2hStandings => ({
   lastFetched: new Date().toISOString(),
   ...getDivisionsStandings(h2hStandings),
