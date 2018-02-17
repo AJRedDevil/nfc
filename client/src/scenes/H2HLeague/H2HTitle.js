@@ -6,14 +6,9 @@ import PropTypes from 'prop-types';
 import LinkTab from '../../components/LinkTab';
 
 class H2HTitle extends Component {
-  state = {currentTab: this.props.links[0].path};
-
   handleTabClick = e => {
-    const currentTab = e.target.getAttribute('identifier');
-    this.setState({
-      ...this.state,
-      currentTab,
-    });
+    const nextTab = e.target.getAttribute('identifier');
+    this.props.setNextTab(nextTab);
   };
 
   render() {
@@ -26,7 +21,7 @@ class H2HTitle extends Component {
               <LinkTab
                 key={link.text}
                 link={link}
-                currentTab={this.state.currentTab}
+                currentTab={this.props.currentTab}
                 onTabClick={this.handleTabClick}
               />
             ))}
@@ -36,6 +31,8 @@ class H2HTitle extends Component {
   }
 }
 H2HTitle.propTypes = {
+  currentTab: PropTypes.string,
+  setNextTab: PropTypes.func.isRequired,
   links: PropTypes.arrayOf(
     PropTypes.shape({
       path: PropTypes.string,

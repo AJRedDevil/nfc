@@ -52,6 +52,12 @@ const getDivisionsStandings = h2hAllDivisionsData =>
     {leagueNames: [], standings: []}
   );
 
+const makePath = text =>
+  text
+    .split(' ')
+    .join('')
+    .toLowerCase();
+
 const getH2HWinners = h2hAllDivisionsData => {
   const result = h2hAllDivisionsData.reduce((winners, h2hDivisionData) => {
     const division = h2hDivisionData.league.name;
@@ -71,5 +77,10 @@ const getH2HStandings = h2hStandings => ({
   lastFetched: new Date().toISOString(),
   ...getDivisionsStandings(h2hStandings),
 });
+const getLinks = leagueNames =>
+  leagueNames.map(leagueName => ({
+    path: makePath(leagueName),
+    text: leagueName,
+  }));
 
-export default {getH2HWinners, getH2HStandings};
+export default {getH2HWinners, getH2HStandings, getLinks};

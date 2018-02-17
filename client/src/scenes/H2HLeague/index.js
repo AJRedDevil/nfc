@@ -1,7 +1,7 @@
 // npm packages
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {isEqual, isEmpty} from 'lodash';
+import {isEmpty} from 'lodash';
 import {connect} from 'react-redux';
 import {Route, Switch} from 'react-router-dom';
 
@@ -11,27 +11,12 @@ import H2HStandings from './H2HStandings';
 import H2HLeaguePropTypes from './PropTypes';
 import LoadingTable from '../../components/LoadingTable';
 import {DateHelper} from '../../utils';
-import {fetchH2HStandingsData} from '../../services/h2h/actions';
-
-const makePath = text =>
-  text
-    .split(' ')
-    .join('')
-    .toLowerCase();
-
-const getLinks = leagueNames =>
-  leagueNames.map(leagueName => ({
-    path: makePath(leagueName),
-    text: leagueName,
-  }));
+import {fetchH2HStandingsData, setRoute} from '../../services/h2h/actions';
 
 class H2HLeague extends Component {
-  constructor(props) {
-    super(props);
-    const links = getLinks(this.props.data.leagueNames);
-    this.state = {links};
-    if (links.length) {
-      const defaultUrl = `${this.props.match.url}/${links[0].path}`;
+  componentWillMount() {
+    if (this.props.currentTab) {
+      const defaultUrl = `${this.props.match.url}/${this.props.currentTab}`;
       this.props.history.push(defaultUrl);
     }
   }
@@ -44,18 +29,17 @@ class H2HLeague extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (!isEqual(this.props.data.leagueNames, nextProps.data.leagueNames)) {
-      const links = getLinks(nextProps.data.leagueNames);
-      this.setState({links});
-      if (links.length) {
-        const defaultUrl = `${this.props.match.url}/${links[0].path}`;
-        this.props.history.push(defaultUrl);
-      }
+    if (
+      isEmpty(this.props.currentTab) &&
+      this.props.currentTab !== nextProps.currentTab
+    ) {
+      const defaultUrl = `${this.props.match.url}/${nextProps.currentTab}`;
+      this.props.history.push(defaultUrl);
     }
   }
 
   renderStandings = () => {
-    const routes = this.state.links.map((link, index) => (
+    const routes = this.props.links.map((link, index) => (
       <Route
         key={link}
         path={`${this.props.match.url}/${link.path}`}
@@ -72,13 +56,13 @@ class H2HLeague extends Component {
 
   renderH2HStandings = () => (
     <div>
-      <H2HTitle links={this.state.links} />
+      <H2HTitle {...this.props} />
       <Switch>{this.renderStandings()}</Switch>
     </div>
   );
 
   render() {
-    return isEmpty(this.props.data.standings) ? (
+    return isEmpty(this.props.currentTab) ? (
       <LoadingTable title="H2HStandings" />
     ) : (
       this.renderH2HStandings()
@@ -86,6 +70,13 @@ class H2HLeague extends Component {
   }
 }
 H2HLeague.propTypes = {
+  currentTab: PropTypes.string,
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      path: PropTypes.string,
+      text: PropTypes.string,
+    })
+  ),
   schema: H2HLeaguePropTypes.h2hLeagueSchema,
   data: H2HLeaguePropTypes.data,
   fetchH2HData: PropTypes.func.isRequired,
@@ -96,15 +87,19 @@ H2HLeague.propTypes = {
     url: PropTypes.string,
   }),
   history: PropTypes.object,
+  setNextTab: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
+  currentTab: state.H2HStandings.currentTab,
+  links: state.H2HStandings.links,
   data: state.H2HStandings.data,
   schema: state.H2HStandings.h2hLeagueSchema,
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchH2HData: () => dispatch(fetchH2HStandingsData()),
+  setNextTab: nextTab => dispatch(setRoute(nextTab)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(H2HLeague);
