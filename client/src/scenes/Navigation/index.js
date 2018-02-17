@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 
 // our packages
 import LinkTab from '../../components/LinkTab';
+import {setRoute} from '../../services/navigation/actions';
 
 const NAVIGATION_LINKS = [
   {path: '', text: 'Dashboard'},
@@ -13,14 +14,9 @@ const NAVIGATION_LINKS = [
 ];
 
 class Navigation extends Component {
-  state = {currentTab: this.props.router.location.pathname.split('/')[1]};
-
   handleTabClick = e => {
-    const currentTab = e.target.getAttribute('identifier');
-    this.setState({
-      ...this.state,
-      currentTab,
-    });
+    const nextTab = e.target.getAttribute('identifier');
+    this.props.setCurrentTab(nextTab);
   };
 
   render() {
@@ -31,7 +27,7 @@ class Navigation extends Component {
             <LinkTab
               key={link.text}
               link={link}
-              currentTab={this.state.currentTab}
+              currentTab={this.props.navigation.currentTab}
               onTabClick={this.handleTabClick}
             />
           ))}
@@ -41,18 +37,19 @@ class Navigation extends Component {
   }
 }
 Navigation.propTypes = {
-  router: PropTypes.shape({
-    location: PropTypes.shape({
-      pathname: PropTypes.string,
-      search: PropTypes.string,
-      hash: PropTypes.string,
-      key: PropTypes.string,
-    }),
+  navigation: PropTypes.shape({
+    currentTab: PropTypes.string,
   }),
+  setCurrentTab: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
+  navigation: state.Navigation,
   router: state.router,
 });
 
-export default connect(mapStateToProps)(Navigation);
+const mapDispatchToProps = dispatch => ({
+  setCurrentTab: nextRoute => dispatch(setRoute(nextRoute)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
