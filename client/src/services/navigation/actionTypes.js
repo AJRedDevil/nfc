@@ -1,2 +1,2 @@
-// eslint-disable-next-line import/prefer-default-export
 export const SET_ROUTE = '@NAVIGATION/SET_ROUTE';
+export const SET_DEFAULT_ROUTE = '@NAVIGATION/SET_DEFAULT_ROUTE';

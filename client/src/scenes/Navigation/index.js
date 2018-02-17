@@ -5,7 +5,8 @@ import {connect} from 'react-redux';
 
 // our packages
 import LinkTab from '../../components/LinkTab';
-import {setRoute} from '../../services/navigation/actions';
+import {setRoute, setDefaultRoute} from '../../services/navigation/actions';
+import {Logger} from '../../utils';
 
 const NAVIGATION_LINKS = [
   {path: '', text: 'Dashboard'},
@@ -14,6 +15,11 @@ const NAVIGATION_LINKS = [
 ];
 
 class Navigation extends Component {
+  componentWillMount() {
+    Logger.info(`setDefaultTab: ${this.props.pathname}`, 'Navigation.cwm');
+    this.props.setDefaultTab(this.props.pathname);
+  }
+
   handleTabClick = e => {
     const nextTab = e.target.getAttribute('identifier');
     this.props.setCurrentTab(nextTab);
@@ -41,15 +47,18 @@ Navigation.propTypes = {
     currentTab: PropTypes.string,
   }),
   setCurrentTab: PropTypes.func.isRequired,
+  setDefaultTab: PropTypes.func.isRequired,
+  pathname: PropTypes.string,
 };
 
 const mapStateToProps = state => ({
   navigation: state.Navigation,
-  router: state.router,
+  pathname: state.router.location.pathname,
 });
 
 const mapDispatchToProps = dispatch => ({
   setCurrentTab: nextRoute => dispatch(setRoute(nextRoute)),
+  setDefaultTab: pathname => dispatch(setDefaultRoute(pathname)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
