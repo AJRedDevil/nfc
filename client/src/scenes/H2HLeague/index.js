@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {isEqual, isEmpty} from 'lodash';
 import {connect} from 'react-redux';
+import {Route, Switch} from 'react-router-dom';
 
 // our packages
 import H2HTitle from './H2HTitle';
@@ -27,8 +28,12 @@ const getLinks = leagueNames =>
 class H2HLeague extends Component {
   constructor(props) {
     super(props);
-    const {leagueNames} = this.props.data;
-    this.state = {links: isEmpty(leagueNames) ? [] : getLinks(leagueNames)};
+    const links = getLinks(this.props.data.leagueNames);
+    this.state = {links};
+    if (links.length) {
+      const defaultUrl = `${this.props.match.url}/${links[0].path}`;
+      this.props.history.push(defaultUrl);
+    }
   }
 
   componentDidMount() {
@@ -40,16 +45,35 @@ class H2HLeague extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (!isEqual(this.props.data.leagueNames, nextProps.data.leagueNames)) {
-      this.setState({
-        links: getLinks(nextProps.data.leagueNames),
-      });
+      const links = getLinks(nextProps.data.leagueNames);
+      this.setState({links});
+      if (links.length) {
+        const defaultUrl = `${this.props.match.url}/${links[0].path}`;
+        this.props.history.push(defaultUrl);
+      }
     }
   }
+
+  renderStandings = () => {
+    const routes = this.state.links.map((link, index) => (
+      <Route
+        key={link}
+        path={`${this.props.match.url}/${link.path}`}
+        render={() => (
+          <H2HStandings
+            standings={this.props.data.standings[index]}
+            {...this.props.schema}
+          />
+        )}
+      />
+    ));
+    return routes;
+  };
 
   renderH2HStandings = () => (
     <div>
       <H2HTitle links={this.state.links} />
-      <H2HStandings {...this.props.data} {...this.props.schema} />
+      <Switch>{this.renderStandings()}</Switch>
     </div>
   );
 
@@ -65,6 +89,13 @@ H2HLeague.propTypes = {
   schema: H2HLeaguePropTypes.h2hLeagueSchema,
   data: H2HLeaguePropTypes.data,
   fetchH2HData: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    isExact: PropTypes.bool,
+    params: PropTypes.object,
+    path: PropTypes.string,
+    url: PropTypes.string,
+  }),
+  history: PropTypes.object,
 };
 
 const mapStateToProps = state => ({

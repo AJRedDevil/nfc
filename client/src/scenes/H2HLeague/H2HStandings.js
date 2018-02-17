@@ -18,10 +18,10 @@ const getBody = standings =>
     item.points_total,
   ]);
 
-const H2HStandings = ({head, standings}) => (
+const H2HStandings = props => (
   <Animation.Fade in>
     <div>
-      <Table body={getBody(standings[0])} head={head} />
+      <Table body={getBody(props.standings)} head={props.head} />
     </div>
   </Animation.Fade>
 );
