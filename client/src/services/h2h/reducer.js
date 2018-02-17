@@ -8,6 +8,7 @@ import {
 import h2hLeagueSchema from './h2hLeagueSchema.json';
 import winnersSchema from './winnersSchema.json';
 import Util from './util';
+import {Logger} from '../../utils';
 
 const initialState = {
   h2hLeagueSchema,
@@ -26,7 +27,7 @@ const h2hStandings = (state = initialState, action) => {
       return state;
     case FETCH_DATA_REJECTED: {
       // TODO: Toast message
-      console.log(action);
+      Logger.info(action, 'h2hStandings.reducer');
       return state;
     }
     case DATA_FETCHED:

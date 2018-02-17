@@ -8,6 +8,7 @@ import {
 import classicLeagueSchema from './classicLeagueSchema.json';
 import top3Schema from './top3Schema.json';
 import Util from './util';
+import {Logger} from '../../utils';
 
 const initialState = {
   classicLeagueSchema,
@@ -26,7 +27,7 @@ const classicStandings = (state = initialState, action) => {
       return state;
     case FETCH_DATA_REJECTED: {
       // TODO: Toast message
-      console.log(action);
+      Logger.info(action, 'classicStandings.reducer');
       return state;
     }
     case DATA_FETCHED:

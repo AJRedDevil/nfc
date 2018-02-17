@@ -1,3 +1,4 @@
 import DateHelper from './dateHelper';
+import Logger from './logger';
 
-export default DateHelper;
+export {DateHelper, Logger};

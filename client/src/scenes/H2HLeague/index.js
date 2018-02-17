@@ -10,7 +10,7 @@ import H2HTitle from './H2HTitle';
 import H2HStandings from './H2HStandings';
 import H2HLeaguePropTypes from './PropTypes';
 import LoadingTable from '../../components/LoadingTable';
-import DateHelper from '../../utils';
+import {DateHelper} from '../../utils';
 import {fetchH2HStandingsData} from '../../services/h2h/actions';
 
 const makePath = text =>

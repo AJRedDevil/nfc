@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // our packages
-import DateHelper from '../../utils';
+import {DateHelper} from '../../utils';
 
 const LeagueTitle = ({leagueName, creationDate}) => (
   <div>

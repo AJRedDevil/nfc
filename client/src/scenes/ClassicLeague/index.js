@@ -8,7 +8,7 @@ import {isEmpty} from 'lodash';
 import LeagueTitle from './LeagueTitle';
 import LeagueStandngs from './LeagueStandings';
 import LoadingTable from '../../components/LoadingTable';
-import DateHelper from '../../utils';
+import {DateHelper} from '../../utils';
 import ClassicLeaguePropTypes from './PropTypes';
 import {fetchClassicData} from '../../services/classic/actions';
 

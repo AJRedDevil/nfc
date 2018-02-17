@@ -10,7 +10,7 @@ import TableHeading from '../../../../components/TableHeading';
 import Table from '../../../../components/Table';
 import ClassicStandingsPropTypes from './PropTypes';
 import Animation from '../../../../components/animations';
-import DateHelper from '../../../../utils';
+import {DateHelper} from '../../../../utils';
 import {fetchClassicData} from '../../../../services/classic/actions';
 
 class ClassicWinners extends Component {

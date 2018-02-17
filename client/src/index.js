@@ -14,6 +14,11 @@ import App from './app';
 // Create a history of your choosing (we're using a browser history in this case)
 const history = createHistory();
 
+// Setup up debug
+if (process.env.NODE_ENV !== 'production') {
+  localStorage.setItem('debug', 'nfc-client:*');
+}
+
 const MainApp = () => (
   <Provider store={configureStore(history)}>
     <div className="container">

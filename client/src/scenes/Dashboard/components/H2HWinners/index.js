@@ -10,7 +10,7 @@ import TableHeading from '../../../../components/TableHeading';
 import Table from '../../../../components/Table';
 import H2HWinnersPropTypes from './PropTypes';
 import Animation from '../../../../components/animations';
-import DateHelper from '../../../../utils';
+import {DateHelper} from '../../../../utils';
 import {fetchH2HStandingsData} from '../../../../services/h2h/actions';
 
 class H2HWinners extends Component {
