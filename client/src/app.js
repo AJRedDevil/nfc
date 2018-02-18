@@ -12,15 +12,22 @@ import H2HLeague from './scenes/H2HLeague';
 import Errors from './components/errors';
 
 const App = () => (
-  <div>
+  <section
+    className="main-content columns is-fullheight"
+    style={{marginTop: '-0.6in'}}
+  >
     <Navigation />
-    <Switch>
-      <Route exact path="/" component={Dashboard} />
-      <Route path="/classicleague" component={ClassicLeague} />
-      <Route path="/h2hleague" component={H2HLeague} />
-      <Route component={Errors.NotFound} />
-    </Switch>
-  </div>
+    <div className="container column is-10">
+      <div className="section">
+        <Switch>
+          <Route exact path="/" component={Dashboard} />
+          <Route path="/classicleague" component={ClassicLeague} />
+          <Route path="/h2hleague" component={H2HLeague} />
+          <Route component={Errors.NotFound} />
+        </Switch>
+      </div>
+    </div>
+  </section>
 );
 
 export default App;

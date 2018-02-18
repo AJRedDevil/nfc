@@ -21,7 +21,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 const MainApp = () => (
   <Provider store={configureStore(history)}>
-    <div className="container">
+    <div>
       <Router history={history}>
         <App />
       </Router>

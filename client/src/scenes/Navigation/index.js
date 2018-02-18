@@ -27,8 +27,9 @@ class Navigation extends Component {
 
   render() {
     return (
-      <div className="tabs">
-        <ul>
+      <aside className="column is-2 is-narrow-mobile is-fullheight section is-hidden-mobile">
+        <p className="menu-label is-hidden-touch">NFC</p>
+        <ul className="menu-list">
           {NAVIGATION_LINKS.map(link => (
             <LinkTab
               key={link.text}
@@ -38,7 +39,7 @@ class Navigation extends Component {
             />
           ))}
         </ul>
-      </div>
+      </aside>
     );
   }
 }

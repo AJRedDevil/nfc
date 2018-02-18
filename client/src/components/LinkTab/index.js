@@ -1,25 +1,31 @@
 // npm packages
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Link, withRouter} from 'react-router-dom';
+import {NavLink, withRouter} from 'react-router-dom';
+
+// our packages
+import {Logger} from '../../utils';
 
 const getLink = props =>
   props.match.path.endsWith('/')
     ? `${props.match.path}${props.link.path}`
     : `${props.match.path}/${props.link.path}`;
 
-const activateCurrent = props =>
-  props.currentTab === props.link.path ? 'is-active' : '';
+const activateCurrent = props => {
+  Logger.info(props, 'LinkTab');
+  return props.currentTab === props.link.path ? 'is-active' : '';
+};
 
 const LinkTab = props => (
   <li className={activateCurrent(props)}>
-    <Link
+    <NavLink
+      activeClassName={activateCurrent(props)}
       to={getLink(props)}
       onClick={props.onTabClick}
       identifier={props.link.path}
     >
       {props.link.text}
-    </Link>
+    </NavLink>
   </li>
 );
 LinkTab.propTypes = {
