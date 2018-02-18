@@ -1,8 +1,8 @@
 import {SET_ROUTE, SET_DEFAULT_ROUTE} from './actionTypes';
 
-export const setRoute = nextRoute => ({
+export const setRoute = data => ({
   type: SET_ROUTE,
-  payload: nextRoute,
+  payload: data,
 });
 
 export const setDefaultRoute = data => ({
