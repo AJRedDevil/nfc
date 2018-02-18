@@ -1,18 +1,18 @@
 // npm packages
 import {flow, groupBy, orderBy} from 'lodash';
 
-const getResults = h2hResponse => h2hResponse.matches_this.results;
-const getHomeIndividualResult = result => ({
+export const getResults = h2hResponse => h2hResponse.matches_this.results;
+export const getHomeIndividualResult = result => ({
   event_total: result.entry_1_points,
   entry_name: result.entry_1_name,
   player_name: result.entry_1_player_name,
 });
-const getAwayIndividualResult = result => ({
+export const getAwayIndividualResult = result => ({
   event_total: result.entry_2_points,
   entry_name: result.entry_2_name,
   player_name: result.entry_2_player_name,
 });
-const getWeekResults = results =>
+export const getWeekResults = results =>
   results.reduce(
     (weekResults, item) => [
       ...weekResults,
@@ -21,21 +21,15 @@ const getWeekResults = results =>
     ],
     []
   );
-const getSortedResult = weekResults =>
+export const getSortedResult = weekResults =>
   orderBy(weekResults, 'event_total', 'desc');
-const groupScore = sortedResult => groupBy(sortedResult, 'event_total');
-const getGroupedScore = flow(
-  getResults,
-  getWeekResults,
-  getSortedResult,
-  groupScore
-);
-const getTop = grouped => {
+export const groupScore = sortedResult => groupBy(sortedResult, 'event_total');
+export const getGroupedScore = flow(getResults, getWeekResults, groupScore);
+export const getTop = grouped => {
   const topScore = Object.keys(grouped).slice(-1)[0];
   return grouped[topScore];
 };
-
-const getDivisionsStandings = h2hAllDivisionsData =>
+export const getDivisionsStandings = h2hAllDivisionsData =>
   h2hAllDivisionsData.reduce(
     (divisionStandings, h2hDivisionData) => {
       const leagueId = h2hDivisionData.league.id.toString();

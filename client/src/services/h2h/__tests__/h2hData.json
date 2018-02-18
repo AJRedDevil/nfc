@@ -1,0 +1,126 @@
+[
+  {
+    "new_entries": {},
+    "league": {
+      "id": 1,
+      "name": "Test1"
+    },
+    "standings": {
+      "results": [
+        {
+          "id": 101,
+          "entry_name": "Test_101",
+          "player_name": "Player 101",
+          "rank": 1,
+          "matches_won": 15,
+          "matches_drawn": 1,
+          "matches_lost": 8,
+          "points_for": 1368,
+          "points_total": 46
+        }
+      ]
+    },
+    "matches_next": {
+      "results": [{}]
+    },
+    "matches_this": {
+      "results": [
+        {
+          "id": 1,
+          "entry_1_entry": 101,
+          "entry_1_name": "Test_101",
+          "entry_1_player_name": "Player 101",
+          "entry_1_points": 101,
+          "entry_2_entry": 102,
+          "entry_2_name": "Test_102",
+          "entry_2_player_name": "Player 102",
+          "entry_2_points": 102
+        },
+        {
+          "id": 2,
+          "entry_1_entry": 103,
+          "entry_1_name": "Test_103",
+          "entry_1_player_name": "Player 103",
+          "entry_1_points": 106,
+          "entry_2_entry": 104,
+          "entry_2_name": "Test_104",
+          "entry_2_player_name": "Player 104",
+          "entry_2_points": 104
+        },
+        {
+          "id": 3,
+          "entry_1_entry": 105,
+          "entry_1_name": "Test_105",
+          "entry_1_player_name": "Player 105",
+          "entry_1_points": 105,
+          "entry_2_entry": 106,
+          "entry_2_name": "Test_106",
+          "entry_2_player_name": "Player 106",
+          "entry_2_points": 106
+        }
+      ]
+    }
+  },
+  {
+    "new_entries": {},
+    "league": {
+      "id": 2,
+      "name": "Test2"
+    },
+    "standings": {
+      "results": [
+        {
+          "id": 201,
+          "entry_name": "Test_201",
+          "player_name": "Player 201",
+          "rank": 1,
+          "matches_won": 15,
+          "matches_drawn": 1,
+          "matches_lost": 8,
+          "points_for": 1368,
+          "points_total": 46
+        }
+      ]
+    },
+    "matches_next": {
+      "results": [{}]
+    },
+    "matches_this": {
+      "results": [
+        {
+          "id": 1,
+          "entry_1_entry": 201,
+          "entry_1_name": "Test_201",
+          "entry_1_player_name": "Player 201",
+          "entry_1_points": 201,
+          "entry_2_entry": 202,
+          "entry_2_name": "Test_202",
+          "entry_2_player_name": "Player 202",
+          "entry_2_points": 212
+        },
+        {
+          "id": 2,
+          "entry_1_entry": 203,
+          "entry_1_name": "Test_203",
+          "entry_1_player_name": "Player 203",
+          "entry_1_points": 203,
+          "entry_2_entry": 204,
+          "entry_2_name": "Test_204",
+          "entry_2_player_name": "Player 204",
+          "entry_2_points": 204
+        },
+        {
+          "id": 3,
+          "entry_1_entry": 205,
+          "entry_1_name": "Test_205",
+          "entry_1_player_name": "Player 205",
+          "entry_1_points": 205,
+          "entry_2_entry": 206,
+          "entry_2_name": "Test_206",
+          "entry_2_player_name": "Player 106",
+          "entry_2_points": 206
+        }
+      ]
+    }
+  }
+]

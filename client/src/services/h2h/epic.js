@@ -26,7 +26,7 @@ const fetchH2HStandingsEpic = action$ =>
     .catch(error =>
       Observable.of({
         type: FETCH_DATA_REJECTED,
-        payload: error.xhr.response,
+        payload: error,
         error: true,
       })
     );

@@ -26,9 +26,8 @@ export const setRoute = nextTab => ({
   payload: nextTab,
 });
 
-export const setLinks = data => ({
+export const setLinks = () => ({
   type: SET_LINKS,
-  payload: data,
 });
 
 export const setDefaultRoute = () => ({

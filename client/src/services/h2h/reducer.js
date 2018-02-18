@@ -64,8 +64,6 @@ const setDefaultRoute = state => {
 
 const h2hStandings = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_DATA:
-      return state;
     case FETCH_DATA_REJECTED:
       return handleRejectedData(state, action);
     case DATA_FETCHED:
@@ -78,6 +76,7 @@ const h2hStandings = (state = initialState, action) => {
       return setDefaultRoute(state);
     case SET_ROUTE:
       return setRoute(state, action);
+    case FETCH_DATA:
     default:
       return state;
   }
