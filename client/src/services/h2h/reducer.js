@@ -23,8 +23,9 @@ const initialState = {
   winners: [],
   data: {
     lastFetched: '',
-    leagueNames: [],
-    standings: [],
+    allIds: [],
+    leagueNames: {},
+    standings: {},
   },
   currentTab: '',
 };
@@ -49,14 +50,14 @@ const setRoute = (state, action) => {
 };
 
 const setLinks = state => {
-  const newLinks = Util.getLinks(state.data.leagueNames);
+  const newLinks = Util.getLinks(state.data);
   return updateObject(state, {links: newLinks});
 };
 
 const setDefaultRoute = state => {
   Logger.info('setDefaultRoute', BASE);
   const defaultTab = isEmpty(state.currentTab)
-    ? state.links[0].path
+    ? state.data.allIds[0]
     : state.currentTab;
   return updateObject(state, {currentTab: defaultTab});
 };

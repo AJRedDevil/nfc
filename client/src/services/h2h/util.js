@@ -38,25 +38,21 @@ const getTop = grouped => {
 const getDivisionsStandings = h2hAllDivisionsData =>
   h2hAllDivisionsData.reduce(
     (divisionStandings, h2hDivisionData) => {
-      const temp = {};
-      temp.leagueNames = [
-        ...divisionStandings.leagueNames,
-        h2hDivisionData.league.name,
-      ];
-      temp.standings = [
-        ...divisionStandings.standings,
-        h2hDivisionData.standings.results,
-      ];
-      return temp;
+      const leagueId = h2hDivisionData.league.id.toString();
+      return {
+        allIds: [...divisionStandings.allIds, leagueId],
+        leagueNames: {
+          ...divisionStandings.leagueNames,
+          [leagueId]: h2hDivisionData.league.name,
+        },
+        standings: {
+          ...divisionStandings.standings,
+          [leagueId]: h2hDivisionData.standings.results,
+        },
+      };
     },
-    {leagueNames: [], standings: []}
+    {allIds: [], leagueNames: {}, standings: {}}
   );
-
-const makePath = text =>
-  text
-    .split(' ')
-    .join('')
-    .toLowerCase();
 
 const getH2HWinners = h2hAllDivisionsData => {
   const result = h2hAllDivisionsData.reduce((winners, h2hDivisionData) => {
@@ -77,10 +73,10 @@ const getH2HStandings = h2hStandings => ({
   lastFetched: new Date().toISOString(),
   ...getDivisionsStandings(h2hStandings),
 });
-const getLinks = leagueNames =>
-  leagueNames.map(leagueName => ({
-    path: makePath(leagueName),
-    text: leagueName,
+const getLinks = ({allIds, leagueNames}) =>
+  allIds.map(leagueId => ({
+    path: leagueId,
+    text: leagueNames[leagueId],
   }));
 
 export default {getH2HWinners, getH2HStandings, getLinks};

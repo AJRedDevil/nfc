@@ -39,15 +39,13 @@ class H2HLeague extends Component {
   }
 
   renderStandings = () => {
-    const routes = this.props.links.map((link, index) => (
+    const {links, match, data, schema, currentTab} = this.props;
+    const routes = links.map(link => (
       <Route
         key={link}
-        path={`${this.props.match.url}/${link.path}`}
+        path={`${match.url}/${link.path}`}
         render={() => (
-          <H2HStandings
-            standings={this.props.data.standings[index]}
-            {...this.props.schema}
-          />
+          <H2HStandings standings={data.standings[currentTab]} {...schema} />
         )}
       />
     ));

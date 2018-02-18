@@ -8,8 +8,9 @@ const h2hLeagueSchema = PropTypes.shape({head: PropTypes.array});
 
 const data = PropTypes.shape({
   lastFetched: PropTypes.string,
-  leagueNames: PropTypes.arrayOf(PropTypes.string),
-  standings: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)),
+  allIds: PropTypes.arrayOf(PropTypes.string),
+  leagueNames: PropTypes.object,
+  standings: PropTypes.object,
 });
 
 export default {h2hLeagueSchema, data, head, body};
