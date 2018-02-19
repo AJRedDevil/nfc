@@ -23,8 +23,6 @@ const initialState = {
 
 const classicStandings = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_DATA:
-      return state;
     case FETCH_DATA_REJECTED: {
       // TODO: Toast message
       Logger.info(action, 'classicStandings.reducer');
@@ -34,6 +32,7 @@ const classicStandings = (state = initialState, action) => {
       return {...state, data: Util.getStandings(action.payload)};
     case EXTRACT_WINNERS:
       return {...state, top3: Util.getClassicWinners(action.payload)};
+    case FETCH_DATA:
     default:
       return state;
   }

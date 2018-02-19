@@ -1,17 +1,18 @@
 // npm packages
 import {flow, groupBy, orderBy} from 'lodash';
 
-const getLeagueInfo = standings => ({
+export const getLeagueInfo = standings => ({
   leagueName: standings[0].league.name,
   creationDate: standings[0].league.created,
   lastFetched: new Date().toISOString(),
 });
-const getResults = standings =>
+export const getResults = standings =>
   standings.reduce((acc, item) => [...acc, ...item.standings.results], []);
-const getSortedResult = results => orderBy(results, 'event_total', 'desc');
+export const getSortedResult = results =>
+  orderBy(results, 'event_total', 'desc');
 const groupScore = sortedResult => groupBy(sortedResult, 'event_total');
-const getGroupedScore = flow(getResults, getSortedResult, groupScore);
-const getTop3 = grouped => {
+export const getGroupedScore = flow(getResults, getSortedResult, groupScore);
+export const getTop3 = grouped => {
   const top3Score = Object.keys(grouped)
     .slice(-3)
     .reverse();

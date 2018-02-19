@@ -19,7 +19,7 @@ const fetchClassicStandingsEpic = action$ =>
     .catch(error =>
       Observable.of({
         type: FETCH_DATA_REJECTED,
-        payload: error.xhr.response,
+        payload: error,
         error: true,
       })
     );
