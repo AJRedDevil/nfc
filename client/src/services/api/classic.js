@@ -7,6 +7,6 @@ const API = (url => ({
     fetch(url)
       .then(response => response.json())
       .catch(error => console.error(error)),
-}))(`http://localhost:3000/classic/${NFC_CONFIG.CLASSIC}`);
+}))(`${process.env.API_HOST}/classic/${NFC_CONFIG.CLASSIC}`);
 
 export default API;
