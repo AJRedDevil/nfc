@@ -1,7 +1,7 @@
 // npm packages
 import React from 'react';
 import {CSSTransition} from 'react-transition-group';
-import {element, bool} from 'prop-types';
+import {element} from 'prop-types';
 
 // our packages
 import './styles.css';
@@ -15,7 +15,6 @@ const Fade = ({children, ...props}) => (
 );
 Fade.propTypes = {
   children: element.isRequired,
-  in: bool.isRequired,
 };
 
 export default Fade;

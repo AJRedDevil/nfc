@@ -15,7 +15,10 @@
     },
     "sourceType": "module"
   },
-  "plugins": ["prettier", "react" ,"jest"],
+  "globals": {
+    "shallow": true
+  },
+  "plugins": ["prettier", "react", "jest"],
   "rules": {
     "constructor-super": "warn",
     "jsx-a11y/anchor-is-valid": "off",

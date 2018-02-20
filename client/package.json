@@ -10,7 +10,17 @@
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
     "lint": "eslint **/*.js",
     "start": "parcel -p 8080 index.html",
-    "test": "jest --verbose"
+    "test": "jest --verbose",
+    "test:watch": "jest --watch",
+    "cover": "jest --coverage"
+  },
+  "jest": {
+    "setupFiles": [
+      "./test/setup.js"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(css|scss)$": "identity-obj-proxy"
+    }
   },
   "dependencies": {
     "bulma": "^0.6.2",
@@ -34,6 +44,8 @@
   "devDependencies": {
     "babel-eslint": "^8.2.1",
     "babel-preset-react-app": "^3.1.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.16.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
@@ -42,6 +54,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.5.0",
     "eslint-plugin-react": "^7.6.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^22.1.4",
     "prettier": "^1.10.2"
   }
