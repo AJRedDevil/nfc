@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`# TableHeading 1`] = `
+<section
+  className="hero is-small is-info is-bold"
+>
+  <div
+    className="hero-body"
+  >
+    <div
+      className="container"
+    >
+      <h1
+        className="title"
+      >
+        test
+      </h1>
+      <h2
+        className="subtitle"
+      />
+    </div>
+  </div>
+</section>
+`;

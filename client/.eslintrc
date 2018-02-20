@@ -16,6 +16,7 @@
     "sourceType": "module"
   },
   "globals": {
+    "renderer": true,
     "shallow": true
   },
   "plugins": ["prettier", "react", "jest"],

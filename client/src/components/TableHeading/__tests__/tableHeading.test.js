@@ -3,16 +3,11 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 
 // our packages
-import Fade from '../fade';
+import TableHeading from '../index';
 
-test('# Fade', () => {
-  const test = {message: 'test'};
+test('# TableHeading', () => {
   const wrapper = renderer
-    .create(
-      <Fade test={test}>
-        <div>Test</div>
-      </Fade>
-    )
+    .create(<TableHeading title="test" subtitle="snapshot" />)
     .toJSON();
   expect(wrapper).toMatchSnapshot();
 });
