@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import {MemoryRouter} from 'react-router-dom';
 
 // our packages
-import {getLink, activateCurrent, LinkTab} from '../index';
+import {getLink, activateCurrent, LinkedTab} from '../index';
 
 describe('# LinkTab', () => {
   test('should return link with path added', () => {
@@ -60,7 +60,7 @@ describe('# LinkTab', () => {
     const onTabClick = () => ({message: 'test'});
     const component = renderer.create(
       <MemoryRouter location="http://locahost:8080">
-        <LinkTab
+        <LinkedTab
           link={link}
           onTabClick={onTabClick}
           currentTab="test"

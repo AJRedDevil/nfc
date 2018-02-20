@@ -11,7 +11,7 @@ export const getLink = props =>
 export const activateCurrent = props =>
   props.currentTab === props.link.path ? 'is-active' : '';
 
-export const LinkTab = props => (
+export const LinkedTab = props => (
   <li className={activateCurrent(props)}>
     <NavLink
       activeClassName={activateCurrent(props)}
@@ -23,7 +23,7 @@ export const LinkTab = props => (
     </NavLink>
   </li>
 );
-LinkTab.propTypes = {
+LinkedTab.propTypes = {
   link: PropTypes.shape({
     path: PropTypes.string,
     text: PropTypes.string,
@@ -31,4 +31,4 @@ LinkTab.propTypes = {
   onTabClick: PropTypes.func,
 };
 
-export default withRouter(LinkTab);
+export default withRouter(LinkedTab);
