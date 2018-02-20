@@ -6,7 +6,7 @@ import {string} from 'prop-types';
 // our packages
 import TablePropTypes from './propTypes';
 
-const TableHeader = ({text}) => <th>{text}</th>;
+export const TableHeader = ({text}) => <th>{text}</th>;
 TableHeader.propTypes = {
   text: string.isRequired,
 };

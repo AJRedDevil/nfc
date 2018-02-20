@@ -5,17 +5,17 @@ import {array, number, oneOfType, string} from 'prop-types';
 // our packages
 import TablePropTypes from './propTypes';
 
-const TableHeader = ({data}) => <th>{data}</th>;
+export const TableHeader = ({data}) => <th>{data}</th>;
 TableHeader.propTypes = {
   data: oneOfType([number, string]),
 };
 
-const TableData = ({data}) => <td>{data}</td>;
+export const TableData = ({data}) => <td>{data}</td>;
 TableData.propTypes = {
   data: oneOfType([number, string]),
 };
 
-const TableRow = ({data}) => (
+export const TableRow = ({data}) => (
   <tr>
     {data.map(
       (rowData, index) =>

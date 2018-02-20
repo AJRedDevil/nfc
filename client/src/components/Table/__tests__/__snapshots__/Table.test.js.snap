@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`# Table 1`] = `
+<table
+  className="table is-fullwidth is-striped is-narrow is-hoverable"
+>
+  <thead>
+    <tr />
+  </thead>
+  <tfoot>
+    <tr />
+  </tfoot>
+  <tbody />
+</table>
+`;
