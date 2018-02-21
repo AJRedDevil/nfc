@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`# ClassicLeague 1`] = `
+<div>
+  <div>
+    <h1
+      className="title"
+    >
+      TestLeague
+    </h1>
+    <h2
+      className="subtitle"
+    >
+      Created : 
+      Wed Feb 21 2018
+    </h2>
+  </div>
+  <div>
+    <table
+      className="table is-fullwidth is-striped is-narrow is-hoverable"
+    >
+      <thead>
+        <tr />
+      </thead>
+      <tfoot>
+        <tr />
+      </tfoot>
+      <tbody>
+        <tr>
+          <th>
+            1
+          </th>
+          <td>
+            test
+          </td>
+          <td>
+            test_1
+          </td>
+          <td>
+            50
+          </td>
+          <td>
+            100
+          </td>
+        </tr>
+        <tr>
+          <th>
+            2
+          </th>
+          <td>
+            test
+          </td>
+          <td>
+            test_2
+          </td>
+          <td>
+            80
+          </td>
+          <td>
+            200
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;

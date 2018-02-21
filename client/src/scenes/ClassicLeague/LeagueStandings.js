@@ -6,7 +6,7 @@ import Animation from '../../components/animations';
 import Table from '../../components/Table';
 import LeagueStandingsPropTypes from './PropTypes';
 
-const getBody = standings =>
+export const getBody = standings =>
   standings.map(item => [
     item.rank,
     item.entry_name,
