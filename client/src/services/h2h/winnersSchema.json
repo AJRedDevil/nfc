@@ -1,0 +1,10 @@
+{
+  "title": "NFC H2H",
+  "subTitle": "Winners",
+  "head": [
+    {"text": "Division"},
+    {"text": "Team Name"},
+    {"text": "Player Name"},
+    {"text": "Gameweek Points"}
+  ]
+}

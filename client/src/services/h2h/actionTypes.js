@@ -1,0 +1,7 @@
+export const FETCH_DATA = '@H2H/FETCH_DATA';
+export const FETCH_DATA_REJECTED = '@H2H/FETCH_DATA_REJECTED';
+export const EXTRACT_WINNERS = '@H2H/EXTRACT_WINNERS';
+export const DATA_FETCHED = '@H2H/DATA_FETCHED';
+export const SET_LINKS = '@H2H/SET_LINKS';
+export const SET_ROUTE = '@H2H/SET_ROUTE';
+export const SET_DEFAULT_ROUTE = '@H2H/SET_DEFAULT_ROUTE';

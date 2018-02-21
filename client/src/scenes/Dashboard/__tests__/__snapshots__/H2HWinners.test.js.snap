@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`# H2HWinners 1`] = `
+<div>
+  <section
+    className="hero is-small is-info is-bold"
+  >
+    <div
+      className="hero-body"
+    >
+      <div
+        className="container"
+      >
+        <h1
+          className="title"
+        >
+          test
+        </h1>
+        <h2
+          className="subtitle"
+        />
+      </div>
+    </div>
+  </section>
+  <table
+    className="table is-fullwidth is-striped is-narrow is-hoverable"
+  >
+    <thead>
+      <tr>
+        <th>
+          Div
+        </th>
+        <th>
+          Team
+        </th>
+        <th>
+          Player
+        </th>
+        <th>
+          Score
+        </th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr />
+    </tfoot>
+    <tbody>
+      <tr>
+        <th>
+          A
+        </th>
+        <td>
+          Test_2
+        </td>
+        <td>
+          Test 2
+        </td>
+        <td>
+          100
+        </td>
+      </tr>
+      <tr>
+        <th>
+          B
+        </th>
+        <td>
+          Test_1
+        </td>
+        <td>
+          Test 1
+        </td>
+        <td>
+          70
+        </td>
+      </tr>
+      <tr>
+        <th>
+          C
+        </th>
+        <td>
+          Test_3
+        </td>
+        <td>
+          Test 3
+        </td>
+        <td>
+          60
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

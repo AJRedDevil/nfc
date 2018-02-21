@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`# Tfoot TableHeader 1`] = `
+<th>
+  test
+</th>
+`;
+
+exports[`# Tfoot Tfoot 1`] = `
+<tfoot>
+  <tr>
+    <th>
+      Test1
+    </th>
+    <th>
+      Test2
+    </th>
+    <th>
+      Test3
+    </th>
+    <th>
+      Test4
+    </th>
+  </tr>
+</tfoot>
+`;

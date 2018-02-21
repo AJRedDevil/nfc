@@ -1,0 +1,88 @@
+{
+  "H2HStandings": {
+    "data": {
+      "lastFetched": "2018-02-21",
+      "standings": {
+        "A": {
+          "rank": 1,
+          "entry_name": "test",
+          "player_name": "test_1"
+        },
+        "B": {
+          "rank": 2,
+          "entry_name": "test",
+          "player_name": "test_2"
+        }
+      }
+    },
+    "winnersSchema": {
+      "title": "test",
+      "subtitle": "testing",
+      "head": [
+        {
+          "text": "Div"
+        },
+        {
+          "text": "Team"
+        },
+        {
+          "text": "Player"
+        },
+        {
+          "text": "Score"
+        }
+      ]
+    },
+    "winners": [
+      ["A", "Test_2", "Test 2", 100],
+      ["B", "Test_1", "Test 1", 70],
+      ["C", "Test_3", "Test 3", 60]
+    ]
+  },
+  "ClassicStandings": {
+    "data": {
+      "leagueName": "TestLeague",
+      "creationDate": "2018-02-21T00:41:36.214Z",
+      "lastFetched": "2018-02-21",
+      "standings": [
+        {
+          "rank": 1,
+          "entry_name": "test",
+          "player_name": "test_1",
+          "event_total": 50,
+          "total": 100
+        },
+        {
+          "rank": 2,
+          "entry_name": "test",
+          "player_name": "test_2",
+          "event_total": 80,
+          "total": 200
+        }
+      ]
+    },
+    "top3Schema": {
+      "title": "test",
+      "subTitle": "testing",
+      "head": [
+        {
+          "text": "Rank"
+        },
+        {
+          "text": "Team"
+        },
+        {
+          "text": "Player"
+        },
+        {
+          "text": "Score"
+        }
+      ]
+    },
+    "top3": [
+      [1, "Test_2", "Test 2", 100],
+      [2, "Test_1", "Test 1", 70],
+      [3, "Test_3", "Test 3", 60]
+    ]
+  }
+}

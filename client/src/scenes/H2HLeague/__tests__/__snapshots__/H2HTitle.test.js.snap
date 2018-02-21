@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`# Navigation 1`] = `
+<div
+  className="tabs"
+>
+  <ul>
+    <li
+      className=""
+    >
+      <a
+        aria-current="true"
+        className=""
+        href="/"
+        identifier=""
+        onClick={[Function]}
+        style={Object {}}
+      >
+        home
+      </a>
+    </li>
+    <li
+      className="is-active"
+    >
+      <a
+        aria-current={false}
+        className={undefined}
+        href="/test"
+        identifier="test"
+        onClick={[Function]}
+        style={undefined}
+      >
+        TestPage
+      </a>
+    </li>
+  </ul>
+</div>
+`;

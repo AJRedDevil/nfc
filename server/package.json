@@ -1,0 +1,42 @@
+{
+  "name": "nfc-server",
+  "version": "1.0.0",
+  "description": "Backend for NFC website. FPL, prediction and QOTD",
+  "main": "index.js",
+  "repository": "git@gitlab.com:AJRedDevil/nfc.git",
+  "author": "AJRedDevil <ajan.shresh@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/index.js",
+    "lint": "eslint **/*.js",
+    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
+    "test": "jest --verbose"
+  },
+  "dependencies": {
+    "cors": "^2.8.4",
+    "dotenv": "^4.0.0",
+    "fastify": "^0.40.0",
+    "lodash": "^4.17.4",
+    "puppeteer": "^1.1.0",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
+    "winston": "^3.0.0-rc1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.39",
+    "@babel/core": "^7.0.0-beta.39",
+    "@babel/preset-env": "^7.0.0-beta.39",
+    "babel-core": "^7.0.0-0",
+    "babel-jest": "^22.2.2",
+    "eslint": "^4.16.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jest": "^21.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.5.0",
+    "eslint-plugin-react": "^7.6.0",
+    "jest": "^22.1.4",
+    "prettier": "^1.10.2"
+  }
+}
