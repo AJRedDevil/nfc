@@ -1,0 +1,13 @@
+@BASE_URL = https://fantasy.premierleague.com
+@PATH = drf/leagues-h2h-standings
+@id = 28162
+
+###
+# H2H Standings
+# https://fantasy.premierleague.com/a/leagues/standings/28162
+{{BASE_URL}}/{{PATH}}/{{id}}
+
+###
+# H2h Matches
+# https://fantasy.premierleague.com/drf/leagues-entries-and-h2h-matches/league/28162?page=1
+# Requires Authentication and cookie

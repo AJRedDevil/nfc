@@ -1,0 +1,12 @@
+{
+  "head": [
+    {"text": "Rank"},
+    {"text": "Team"},
+    {"text": "Manager"},
+    {"text": "Wins"},
+    {"text": "Draws"},
+    {"text": "Losses"},
+    {"text": "Score"},
+    {"text": "Pts"}
+  ]
+}

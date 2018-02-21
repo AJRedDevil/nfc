@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`# H2HLeague 1`] = `
+<div>
+  <div
+    className="tabs"
+  >
+    <ul>
+      <li
+        className=""
+      >
+        <a
+          aria-current="true"
+          className=""
+          href="/"
+          identifier=""
+          onClick={[Function]}
+          style={Object {}}
+        >
+          HomePage
+        </a>
+      </li>
+      <li
+        className=""
+      >
+        <a
+          aria-current={false}
+          className={undefined}
+          href="/test"
+          identifier="test"
+          onClick={[Function]}
+          style={undefined}
+        >
+          TestPage
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <table
+      className="table is-fullwidth is-striped is-narrow is-hoverable"
+    >
+      <thead>
+        <tr />
+      </thead>
+      <tfoot>
+        <tr />
+      </tfoot>
+      <tbody>
+        <tr>
+          <th>
+            1
+          </th>
+          <td>
+            test
+          </td>
+          <td>
+            test_1
+          </td>
+          <td>
+            1
+          </td>
+          <td>
+            1
+          </td>
+          <td>
+            1
+          </td>
+          <td>
+            1
+          </td>
+          <td>
+            100
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;

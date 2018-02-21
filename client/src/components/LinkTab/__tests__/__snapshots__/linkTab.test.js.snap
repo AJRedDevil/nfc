@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`# LinkTab LinkTab Wrapper 1`] = `
+<li
+  className="is-active"
+>
+  <a
+    aria-current={false}
+    className={undefined}
+    href="http://locahost:8080/test"
+    identifier="test"
+    onClick={[Function]}
+    style={undefined}
+  >
+    test
+  </a>
+</li>
+`;

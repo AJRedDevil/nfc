@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`# THead THead 1`] = `
+<thead>
+  <tr>
+    <th>
+      Test1
+    </th>
+    <th>
+      Test2
+    </th>
+    <th>
+      Test3
+    </th>
+    <th>
+      Test4
+    </th>
+  </tr>
+</thead>
+`;
+
+exports[`# THead TableHeader 1`] = `
+<th>
+  test
+</th>
+`;

@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`# Navigation 1`] = `
+<aside
+  className="column is-2 is-narrow-mobile is-fullheight section is-hidden-mobile"
+>
+  <p
+    className="menu-label is-hidden-touch"
+  >
+    NFC
+  </p>
+  <ul
+    className="menu-list"
+  >
+    <li
+      className=""
+    >
+      <a
+        aria-current="true"
+        className=""
+        href="/"
+        identifier=""
+        onClick={[Function]}
+        style={Object {}}
+      >
+        Dashboard
+      </a>
+    </li>
+    <li
+      className=""
+    >
+      <a
+        aria-current={false}
+        className={undefined}
+        href="/classicleague"
+        identifier="classicleague"
+        onClick={[Function]}
+        style={undefined}
+      >
+        Classic League
+      </a>
+    </li>
+    <li
+      className=""
+    >
+      <a
+        aria-current={false}
+        className={undefined}
+        href="/h2hleague"
+        identifier="h2hleague"
+        onClick={[Function]}
+        style={undefined}
+      >
+        H2H League
+      </a>
+    </li>
+  </ul>
+</aside>
+`;

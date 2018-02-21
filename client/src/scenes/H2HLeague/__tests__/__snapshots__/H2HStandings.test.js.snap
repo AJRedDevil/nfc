@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`# H2HStandings H2HStandings wrapper 1`] = `
+<div>
+  <table
+    className="table is-fullwidth is-striped is-narrow is-hoverable"
+  >
+    <thead>
+      <tr>
+        <th>
+          Rank
+        </th>
+        <th>
+          Team
+        </th>
+        <th>
+          Player
+        </th>
+        <th>
+          Won
+        </th>
+        <th>
+          Drawn
+        </th>
+        <th>
+          Lost
+        </th>
+        <th>
+          For
+        </th>
+        <th>
+          Total
+        </th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr />
+    </tfoot>
+    <tbody>
+      <tr>
+        <th>
+          1
+        </th>
+        <td>
+          test
+        </td>
+        <td>
+          test_1
+        </td>
+        <td>
+          1
+        </td>
+        <td>
+          1
+        </td>
+        <td>
+          1
+        </td>
+        <td>
+          1
+        </td>
+        <td>
+          100
+        </td>
+      </tr>
+      <tr>
+        <th>
+          2
+        </th>
+        <td>
+          test
+        </td>
+        <td>
+          test_2
+        </td>
+        <td>
+          2
+        </td>
+        <td>
+          2
+        </td>
+        <td>
+          2
+        </td>
+        <td>
+          2
+        </td>
+        <td>
+          200
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

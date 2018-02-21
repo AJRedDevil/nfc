@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`# TBody TBody 1`] = `
+<tbody>
+  <tr>
+    <th>
+      SN
+    </th>
+    <td>
+      Message
+    </td>
+  </tr>
+  <tr>
+    <th>
+      1
+    </th>
+    <td>
+      test1
+    </td>
+  </tr>
+  <tr>
+    <th>
+      2
+    </th>
+    <td>
+      test2
+    </td>
+  </tr>
+  <tr>
+    <th>
+      3
+    </th>
+    <td>
+      test3
+    </td>
+  </tr>
+  <tr>
+    <th>
+      4
+    </th>
+    <td>
+      test4
+    </td>
+  </tr>
+</tbody>
+`;
+
+exports[`# TBody TableData 1`] = `
+<td>
+  1
+</td>
+`;
+
+exports[`# TBody TableHeader 1`] = `
+<th>
+  SN
+</th>
+`;
+
+exports[`# TBody TableRow 1`] = `
+<tr>
+  <th>
+    1
+  </th>
+  <td>
+    test1
+  </td>
+  <td>
+    test2
+  </td>
+  <td>
+    test3
+  </td>
+</tr>
+`;
