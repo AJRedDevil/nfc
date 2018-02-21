@@ -48,6 +48,7 @@ release-server:
     - docker push $SERVER_RELEASE_IMAGE
   only:
     - develop
+    - master
 
 release-client:
   stage: release
@@ -57,3 +58,4 @@ release-client:
     - docker push $CLIENT_RELEASE_IMAGE
   only:
     - develop
+    - master
