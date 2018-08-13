@@ -7,12 +7,12 @@ import {
   EXTRACT_WINNERS,
 } from '../actionTypes';
 import classicLeagueSchema from '../classicLeagueSchema.json';
-import top3Schema from '../top3Schema.json';
+import top5Schema from '../top5Schema.json';
 import classicData from './classicData.json';
 
 const INITIAL_STATE = {
   classicLeagueSchema,
-  top3Schema,
+  top5Schema,
   data: {
     leagueName: '',
     creationDate: '',
@@ -172,14 +172,14 @@ describe('Classic Reducer', () => {
           },
         ],
       },
-      top3Schema: {
+      top5Schema: {
         head: [
           {text: 'Position'},
           {text: 'Team Name'},
           {text: 'Player Name'},
           {text: 'Gameweek Points'},
         ],
-        subTitle: 'Top 3',
+        subTitle: 'Top 5',
         title: 'NFC Classic',
       },
     });
@@ -188,10 +188,12 @@ describe('Classic Reducer', () => {
   test('should extract winners', () => {
     const action = {type: EXTRACT_WINNERS, payload: classicData};
     const response = classicReducer(INITIAL_STATE, action);
-    expect(response.top3).toEqual([
+    expect(response.top5).toEqual([
       [1, 'Test_5', 'Test 5', 90],
       [2, 'Test_2', 'Test 2', 88],
       [3, 'Test_3', 'Test 3', 78],
+      [4, 'Test_7', 'Test 7', 72],
+      [5, 'Test_1', 'Test 1', 70]
     ]);
   });
 });

@@ -1,0 +1,10 @@
+{
+  "title": "NFC Classic",
+  "subTitle": "Top 5",
+  "head": [
+    {"text": "Position"},
+    {"text": "Team Name"},
+    {"text": "Player Name"},
+    {"text": "Gameweek Points"}
+  ]
+}

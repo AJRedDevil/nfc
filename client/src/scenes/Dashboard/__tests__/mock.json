@@ -61,7 +61,7 @@
         }
       ]
     },
-    "top3Schema": {
+    "top5Schema": {
       "title": "test",
       "subTitle": "testing",
       "head": [
@@ -79,10 +79,12 @@
         }
       ]
     },
-    "top3": [
+    "top5": [
       [1, "Test_2", "Test 2", 100],
       [2, "Test_1", "Test 1", 70],
-      [3, "Test_3", "Test 3", 60]
+      [3, "Test_3", "Test 3", 60],
+      [4, "Test_7", "Test 7", 72],
+      [5, "Test_1", "Test 1", 70]
     ]
   }
 }

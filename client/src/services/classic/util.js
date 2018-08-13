@@ -12,11 +12,11 @@ export const getSortedResult = results =>
   orderBy(results, 'event_total', 'desc');
 const groupScore = sortedResult => groupBy(sortedResult, 'event_total');
 export const getGroupedScore = flow(getResults, getSortedResult, groupScore);
-export const getTop3 = grouped => {
-  const top3Score = Object.keys(grouped)
-    .slice(-3)
+export const getTop5 = grouped => {
+  const top5Score = Object.keys(grouped)
+    .slice(-5)
     .reverse();
-  return top3Score.map(score => grouped[score]);
+  return top5Score.map(score => grouped[score]);
 };
 const filterPlayerData = (player, index) => [
   index + 1,
@@ -34,7 +34,7 @@ const filterTableData = rows =>
   );
 
 const getClassicWinners = classicStandings => {
-  const winners = flow(getGroupedScore, getTop3, filterTableData);
+  const winners = flow(getGroupedScore, getTop5, filterTableData);
   return winners(classicStandings);
 };
 const getStandings = standings =>

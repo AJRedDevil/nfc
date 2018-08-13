@@ -25,15 +25,15 @@ class ClassicWinners extends Component {
     <Animation.Fade in>
       <div>
         <TableHeading {...props.schema} />
-        <Table body={props.top3} {...props.schema} />
+        <Table body={props.top5} {...props.schema} />
       </div>
     </Animation.Fade>
   );
 
   render() {
-    const {schema, top3} = this.props;
-    return size(top3) > 0 ? (
-      this.renderClassicWinners({schema, top3})
+    const {schema, top5} = this.props;
+    return size(top5) > 0 ? (
+      this.renderClassicWinners({schema, top5})
     ) : (
       <LoadingTable title="ClassicWinners" />
     );
@@ -42,14 +42,14 @@ class ClassicWinners extends Component {
 ClassicWinners.propTypes = {
   data: ClassicStandingsPropTypes.data,
   fetchClassicData: PropTypes.func.isRequired,
-  schema: ClassicStandingsPropTypes.top3Schema,
-  top3: ClassicStandingsPropTypes.top3,
+  schema: ClassicStandingsPropTypes.top5Schema,
+  top5: ClassicStandingsPropTypes.top5,
 };
 
 const mapStateToProps = state => ({
   data: state.ClassicStandings.data,
-  schema: state.ClassicStandings.top3Schema,
-  top3: state.ClassicStandings.top3,
+  schema: state.ClassicStandings.top5Schema,
+  top5: state.ClassicStandings.top5,
 });
 
 const mapDispatchToProps = dispatch => ({
