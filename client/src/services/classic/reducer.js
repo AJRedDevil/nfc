@@ -6,13 +6,13 @@ import {
   EXTRACT_WINNERS,
 } from './actionTypes';
 import classicLeagueSchema from './classicLeagueSchema.json';
-import top3Schema from './top3Schema.json';
+import top5Schema from './top5Schema.json';
 import Util from './util';
 import {Logger} from '../../utils';
 
 const initialState = {
   classicLeagueSchema,
-  top3Schema,
+  top5Schema,
   data: {
     leagueName: '',
     creationDate: '',
@@ -31,7 +31,7 @@ const classicStandings = (state = initialState, action) => {
     case DATA_FETCHED:
       return {...state, data: Util.getStandings(action.payload)};
     case EXTRACT_WINNERS:
-      return {...state, top3: Util.getClassicWinners(action.payload)};
+      return {...state, top5: Util.getClassicWinners(action.payload)};
     case FETCH_DATA:
     default:
       return state;

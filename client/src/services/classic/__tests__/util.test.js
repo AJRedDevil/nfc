@@ -4,7 +4,7 @@ import Util, {
   getResults,
   getSortedResult,
   getGroupedScore,
-  getTop3,
+  getTop5,
 } from '../util';
 import classicData from './classicData.json';
 
@@ -386,8 +386,8 @@ describe('Classic Util', () => {
     });
   });
 
-  test('should return top3', () => {
-    const response = getTop3(getGroupedScore(classicData));
+  test('should return top5', () => {
+    const response = getTop5(getGroupedScore(classicData));
     expect(response).toEqual([
       [
         {
@@ -443,6 +443,42 @@ describe('Classic Util', () => {
           stop_event: 38,
         },
       ],
+      [
+        {
+          id: 7,
+          entry: 21561,
+          entry_name: 'Test_7',
+          event_total: 72,
+          last_rank: 7,
+          league: 1827,
+          movement: 'same',
+          own_entry: false,
+          player_name: 'Test 7',
+          rank: 7,
+          rank_sort: 7,
+          start_event: 1,
+          stop_event: 38,
+          total: 1418,
+        },
+      ],
+      [
+        {
+          id: 1,
+          entry: 100,
+          entry_name: 'Test_1',
+          event_total: 70,
+          last_rank: 1,
+          league: 1827,
+          movement: 'down',
+          own_entry: false,
+          player_name: 'Test 1',
+          rank: 1,
+          rank_sort: 1,
+          start_event: 1,
+          stop_event: 38,
+          total: 1436,
+        },
+      ],
     ]);
   });
 
@@ -452,6 +488,8 @@ describe('Classic Util', () => {
       [1, 'Test_5', 'Test 5', 90],
       [2, 'Test_2', 'Test 2', 88],
       [3, 'Test_3', 'Test 3', 78],
+      [4, 'Test_7', 'Test 7', 72],
+      [5, 'Test_1', 'Test 1', 70],
     ]);
   });
 

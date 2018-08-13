@@ -89,6 +89,34 @@ exports[`# ClassicWinners 1`] = `
           60
         </td>
       </tr>
+      <tr>
+        <th>
+          4
+        </th>
+        <td>
+          Test_7
+        </td>
+        <td>
+          Test 7
+        </td>
+        <td>
+          72
+        </td>
+      </tr>
+      <tr>
+        <th>
+          5
+        </th>
+        <td>
+          Test_1
+        </td>
+        <td>
+          Test 1
+        </td>
+        <td>
+          70
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>

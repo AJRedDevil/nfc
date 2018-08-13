@@ -4,7 +4,7 @@ const head = PropTypes.arrayOf(
   PropTypes.shape({text: PropTypes.string.isRequired})
 );
 
-const top3Schema = PropTypes.shape({
+const top5Schema = PropTypes.shape({
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string.isRequired,
   head,
@@ -17,6 +17,6 @@ const data = PropTypes.shape({
   standings: PropTypes.arrayOf(PropTypes.object),
 });
 
-const top3 = PropTypes.arrayOf(PropTypes.array);
+const top5 = PropTypes.arrayOf(PropTypes.array);
 
-export default {top3Schema, data, top3};
+export default {top5Schema, data, top5};
