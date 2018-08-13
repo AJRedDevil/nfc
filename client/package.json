@@ -20,7 +20,8 @@
     ],
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "identity-obj-proxy"
-    }
+    },
+    "testURL": "http://localhost"
   },
   "dependencies": {
     "bulma": "^0.6.2",
@@ -43,7 +44,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
-    "babel-preset-react-app": "^3.1.1",
+    "babel-preset-react-app": "^3.1.2",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.16.0",
