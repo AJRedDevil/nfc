@@ -12,6 +12,9 @@
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
     "test": "jest --verbose"
   },
+  "jest": {
+    "testEnvironment": "node"
+  },
   "dependencies": {
     "cors": "^2.8.4",
     "dotenv": "^4.0.0",
