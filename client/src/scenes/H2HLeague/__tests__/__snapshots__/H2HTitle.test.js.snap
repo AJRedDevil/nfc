@@ -9,7 +9,7 @@ exports[`# Navigation 1`] = `
       className=""
     >
       <a
-        aria-current="true"
+        aria-current="page"
         className=""
         href="/"
         identifier=""
@@ -23,7 +23,7 @@ exports[`# Navigation 1`] = `
       className="is-active"
     >
       <a
-        aria-current={false}
+        aria-current={null}
         className={undefined}
         href="/test"
         identifier="test"

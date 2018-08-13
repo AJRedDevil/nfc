@@ -5,9 +5,9 @@ exports[`# LinkTab LinkTab Wrapper 1`] = `
   className="is-active"
 >
   <a
-    aria-current={false}
+    aria-current={null}
     className={undefined}
-    href="http://locahost:8080/test"
+    href="/http://locahost:8080/test"
     identifier="test"
     onClick={[Function]}
     style={undefined}
