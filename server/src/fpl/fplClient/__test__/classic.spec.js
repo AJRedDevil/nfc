@@ -4,7 +4,7 @@ const {getClassicURLs, fetchLeagueStandings} = require('../classic');
 describe('Fetch Classic Standings', () => {
   let responses = [];
   beforeAll(async () => {
-    const CLASSIC_LEAGUE_ID = 1827;
+    const CLASSIC_LEAGUE_ID = 137853;
     responses = await fetchLeagueStandings(CLASSIC_LEAGUE_ID);
   });
 
@@ -36,6 +36,6 @@ describe('Fetch Classic Standings', () => {
       (allStandings, item) => [...allStandings, ...item.results],
       []
     );
-    expect(results.length).toBe(80);
+    expect(results.length).toBe(100);
   });
 });

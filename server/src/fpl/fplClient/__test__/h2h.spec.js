@@ -4,7 +4,7 @@ const {fetchH2HStandings} = require('../../fplClient');
 describe('Fetch H2H Standings', () => {
   let response = {};
   beforeAll(async () => {
-    const H2H_LEAGUE_ID = 28162;
+    const H2H_LEAGUE_ID = 262415;
     response = await fetchH2HStandings(H2H_LEAGUE_ID);
   });
 
