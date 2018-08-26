@@ -9,6 +9,7 @@ import Navigation from './scenes/Navigation';
 import Dashboard from './scenes/Dashboard';
 import ClassicLeague from './scenes/ClassicLeague';
 import H2HLeague from './scenes/H2HLeague';
+import GameweekOverall from './scenes/GameweekOverall';
 import Errors from './components/errors';
 
 const App = () => (
@@ -23,6 +24,7 @@ const App = () => (
           <Route exact path="/" component={Dashboard} />
           <Route path="/classicleague" component={ClassicLeague} />
           <Route path="/h2hleague" component={H2HLeague} />
+          <Route path="/gwtable" component={GameweekOverall} />
           <Route component={Errors.NotFound} />
         </Switch>
       </div>

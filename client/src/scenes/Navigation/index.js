@@ -12,6 +12,7 @@ const NAVIGATION_LINKS = [
   {path: '', text: 'Dashboard'},
   {path: 'classicleague', text: 'Classic League'},
   {path: 'h2hleague', text: 'H2H League'},
+  {path: 'gwtable', text: 'GW Overall'},
 ];
 
 class Navigation extends Component {
