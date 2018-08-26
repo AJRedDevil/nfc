@@ -54,6 +54,20 @@ exports[`# Navigation 1`] = `
         H2H League
       </a>
     </li>
+    <li
+      className=""
+    >
+      <a
+        aria-current={null}
+        className={undefined}
+        href="/gwtable"
+        identifier="gwtable"
+        onClick={[Function]}
+        style={undefined}
+      >
+        GW Overall
+      </a>
+    </li>
   </ul>
 </aside>
 `;

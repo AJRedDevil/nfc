@@ -10,7 +10,7 @@ const head = PropTypes.arrayOf(PropTypes.shape({text: PropTypes.string}));
 
 const winnersSchema = PropTypes.shape({
   title: PropTypes.string.isRequired,
-  subTitle: PropTypes.string.isRequired,
+  subTitle: PropTypes.string,
   head,
 });
 

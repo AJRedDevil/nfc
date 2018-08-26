@@ -5,7 +5,7 @@ import configureMockStore from 'redux-mock-store';
 
 // our packages
 import H2HWinners from '../components/H2HWinners';
-import DashboardMock from './mock';
+import DashboardMock from './mock.json';
 
 // create mock store
 const mockStore = configureMockStore();
