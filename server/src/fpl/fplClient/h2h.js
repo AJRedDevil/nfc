@@ -7,7 +7,10 @@ const {getH2HURL} = require('../fplUri');
 const {getJSONOptions, getLogger} = require('../../util');
 
 const logger = getLogger(__filename);
-const getOptions = flow(getH2HURL, getJSONOptions);
+const getOptions = flow(
+  getH2HURL,
+  getJSONOptions
+);
 
 const fetchH2HStandings = id =>
   rp
