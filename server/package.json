@@ -19,7 +19,7 @@
   "dependencies": {
     "cors": "^2.8.4",
     "dotenv": "^4.0.0",
-    "fastify": "^0.40.0",
+    "fastify": "^2.15.1",
     "lodash": "^4.17.19",
     "puppeteer": "^1.1.0",
     "request": "^2.83.0",
